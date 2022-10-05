@@ -17,22 +17,22 @@
 \raggedbottom
 
 % Load konfigurasi LaTeX untuk tipe laporan thesis
-\usepackage{uithesis}
+\usepackage{etc/uithesis}
 
 
 % Load konfigurasi khusus untuk laporan yang sedang dibuat
-\input{laporan_setting}
+\input{etc/settings}
 % Daftar pemenggalan suku kata dan istilah dalam LaTeX
-\include{hype.indonesia}
+\input{etc/hype.indonesia}
 % Daftar istilah yang mungkin perlu ditandai
-\input{istilah}
+\input{src/istilah}
 
 % Awal bagian penulisan laporan
 \begin{document}
 
 %
 % Sampul Laporan
-\include{sampul}
+\input{src/sampul}
 \forceclearchapter
 
 %
@@ -43,7 +43,7 @@
 %
 % load halaman judul dalam
 \addChapter{HALAMAN JUDUL}
-\include{judul_dalam}
+\input{src/00-frontmatter/01-judul_dalam}
 \forceclearchapter
 
 %
@@ -53,34 +53,34 @@
 %
 % load halaman pengesahan
 \addChapter{LEMBAR PERSETUJUAN}
-\include{pengesahan}
+\input{src/00-frontmatter/02-pengesahan}
 \forceclearchapter
 %
 % load halaman orisinalitas
 \addChapter{LEMBAR PERNYATAAN ORISINALITAS}
-\include{orisinal}
+\input{src/00-frontmatter/03-keaslian}
 \forceclearchapter
 %
 %
 \addChapter{LEMBAR PENGESAHAN}
-\include{pengesahan_sidang}
+\input{src/00-frontmatter/04-pengesahan_sidang}
 \forceclearchapter
 %
 %
 \addChapter{LEMBAR PERSETUJUAN PUBLIKASI ILMIAH}
-\include{persetujuan_publikasi}
+\input{src/00-frontmatter/05-persetujuan_publikasi}
 \forceclearchapter
 %
 %
 \addChapter{\kataPengantar}
-\include{pengantar}
+\input{src/00-frontmatter/06-pengantar}
 %
 %
 \addChapter{ABSTRAK}
-\include{abstrak}
+\input{src/00-frontmatter/07-abstrak}
 %
 %
-\include{abstract}
+\input{src/00-frontmatter/08-abstract}
 
 %
 % Daftar isi, gambar, tabel, dan kode
@@ -120,32 +120,32 @@
 
 
 \setoddevenheader
-\include{bab1}
+\input{src/01-body/01-bab1}
 \clearchapter
-\include{bab2}
+\input{src/01-body/02-bab2}
 \clearchapter
-\include{bab3}
+\input{src/01-body/03-bab3}
 \clearchapter
-\include{bab4}
+\input{src/01-body/04-bab4}
 \clearchapter
-\include{bab5}
+\input{src/01-body/05-bab5}
 \clearchapter
-\include{kesimpulan}
+\input{src/01-body/06-kesimpulan}
 \clearchapter
 
 %
 % Daftar Pustaka
-\include{pustaka}
+\input{src/99-backmatter/pustaka}
 \clearchapter
 
 %
 % Lampiran
 %
 \begin{appendix}
-	\include{markLampiran}
+	\input{etc/markLampiran}
 	\clearchapter
 	\setcounter{page}{2}
-	\include{lampiran}
+	\input{src/99-backmatter/lampiran}
 \end{appendix}
 
 \end{document}

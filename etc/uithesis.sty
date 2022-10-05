@@ -49,7 +49,6 @@
 %
 \usepackage{hyperref}
   \hypersetup{
-  	a4paper,
   	colorlinks=false,
   	pdfborder=0 0 0,
   	linkcolor=blue,
@@ -139,7 +138,32 @@
 %
 % Membantu dalam mengatur jarak antara tepi kertas dengan posisi header.
 %
-\usepackage[ConnyRevised]{fncychap}
+\usepackage[Conny]{fncychap}
+
+%
+% Ubah style Conny
+%
+\ChNameVar{\centering\large\rm\bfseries}
+\ChNumVar{\large\bfseries}
+\ChTitleVar{\centering\large\rm\bfseries}
+\ChRuleWidth{0pt}
+
+\renewcommand{\DOCH}{%
+	%\vskip -0.5\baselineskip
+	\CNV\FmN{\@chapapp}\space \CNoV\thechapter
+	\par\nobreak
+	%\vskip -0.5\baselineskip
+}
+\renewcommand{\DOTI}[1]{%
+	%\mghrulefill{\RW}\par\nobreak
+	\CTV\FmTi{#1}\par\nobreak
+	\vskip 20\p@
+}
+\renewcommand{\DOTIS}[1]{%
+	%\mghrulefill{\RW}\par\nobreak
+	\CTV\FmTi{#1}\par\nobreak
+	\vskip 10\p@
+}
 
 %
 % Digunakan untuk membuat tabel berwarna-warni.
