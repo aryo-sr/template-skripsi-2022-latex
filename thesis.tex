@@ -13,17 +13,18 @@
 %
 % Tipe dokumen adalah report dengan satu kolom.
 %
-\documentclass[12pt, a4paper, onecolumn, twoside, final]{report}
-\raggedbottom
+\documentclass[12pt, a4paper, onecolumn, oneside, final]{report}
+%\raggedbottom
 
 % Load konfigurasi LaTeX untuk tipe laporan thesis
 \usepackage{etc/uithesis}
 
+% Daftar pemenggalan suku kata dan istilah dalam LaTeX
+\input{etc/hype.indonesia}
 
 % Load konfigurasi khusus untuk laporan yang sedang dibuat
 \input{etc/settings}
-% Daftar pemenggalan suku kata dan istilah dalam LaTeX
-\input{etc/hype.indonesia}
+
 % Daftar istilah yang mungkin perlu ditandai
 \input{src/istilah}
 
@@ -33,81 +34,81 @@
 %
 % Sampul Laporan
 \input{src/sampul}
-\forceclearchapter
+%\forceclearchapter
 
 %
 % Gunakan penomeran romawi
 \pagenumbering{roman}
-\pagestyle{first-pages}
+%\pagestyle{first-pages}
 
 %
 % load halaman judul dalam
 \addChapter{HALAMAN JUDUL}
 \input{src/00-frontmatter/01-judul_dalam}
-\forceclearchapter
+%\forceclearchapter
 
 %
 % setelah bagian ini, halaman dihitung sebagai halaman ke 2
-\setcounter{page}{2}
+%\setcounter{page}{2}
+\doublespacing
 
 %
-% load halaman pengesahan
-\addChapter{LEMBAR PERSETUJUAN}
-\input{src/00-frontmatter/02-pengesahan}
-\forceclearchapter
-%
 % load halaman orisinalitas
-\addChapter{LEMBAR PERNYATAAN ORISINALITAS}
-\input{src/00-frontmatter/03-keaslian}
-\forceclearchapter
+\addChapter{LEMBAR PERNYATAAN KEASLIAN}
+\input{src/00-frontmatter/02-keaslian}
+%\forceclearchapter
 %
+% load halaman nota pembimbing
+\addChapter{LEMBAR NOTA PEMBIMBING}
+\input{src/00-frontmatter/03-nota_pembimbing}
+%\forceclearchapter
 %
 \addChapter{LEMBAR PENGESAHAN}
 \input{src/00-frontmatter/04-pengesahan_sidang}
-\forceclearchapter
+%\forceclearchapter
 %
 %
-\addChapter{LEMBAR PERSETUJUAN PUBLIKASI ILMIAH}
-\input{src/00-frontmatter/05-persetujuan_publikasi}
-\forceclearchapter
-%
-%
-\addChapter{\kataPengantar}
-\input{src/00-frontmatter/06-pengantar}
+\addChapter{LEMBAR MOTTO dan PERSEMBAHAN}
+\input{src/00-frontmatter/05-motto_persembahan}
+%\forceclearchapter
 %
 %
 \addChapter{ABSTRAK}
-\input{src/00-frontmatter/07-abstrak}
+\input{src/00-frontmatter/06-abstrak}
 %
 %
-\input{src/00-frontmatter/08-abstract}
-
+\input{src/00-frontmatter/07-abstract}
+%
+\addChapter{\kataPengantar}
+\input{src/00-frontmatter/08-pengantar}
+%
 %
 % Daftar isi, gambar, tabel, dan kode
 %
 \phantomsection %hack to make them clickable
-\singlespacing
+%\singlespacing
 \tableofcontents
-\onehalfspacing
+%\onehalfspacing
 \clearpage
 \phantomsection %hack to make them clickable
-\singlespacing
+%\singlespacing
 \listoffigures
-\onehalfspacing
+%\onehalfspacing
 \clearpage
 \phantomsection %hack to make them clickable
-\singlespacing
+%\singlespacing
 \listoftables
-\onehalfspacing
+%\onehalfspacing
 \clearpage
-\phantomsection %hack to make them clickable
-\addcontentsline{toc}{chapter}{\lstlistlistingname}
-\singlespacing
-\lstlistoflistings
-\onehalfspacing
-
+%\phantomsection %hack to make them clickable
+%\addcontentsline{toc}{chapter}{\lstlistlistingname}
+%\singlespacing
+%\lstlistoflistings
+%\listoflistings
+%\onehalfspacing
+%\clearpage
 % Jika penomoran romawi selesai di ganjil
-\naiveoddclearchapter
+%\naiveoddclearchapter
 % Jika penomoran romawi selesai di genap
 %\naiveevenclearchapter
 
@@ -115,37 +116,41 @@
 % Gunakan penomeran Arab (1, 2, 3, ...) setelah bagian ini.
 %
 \pagenumbering{arabic}
-\pagestyle{standard}
+%\pagestyle{standard}
 % \setlength{\belowcaptionskip}{+2pt}
 
 
-\setoddevenheader
+%\setoddevenheader
 \input{src/01-body/01-bab1}
-\clearchapter
+%\clearchapter
 \input{src/01-body/02-bab2}
-\clearchapter
+%\clearchapter
 \input{src/01-body/03-bab3}
-\clearchapter
+%\clearchapter
 \input{src/01-body/04-bab4}
-\clearchapter
+%\clearchapter
 \input{src/01-body/05-bab5}
-\clearchapter
+%\clearchapter
 \input{src/01-body/06-kesimpulan}
-\clearchapter
+%\clearchapter
 
 %
 % Daftar Pustaka
-\input{src/99-backmatter/pustaka}
-\clearchapter
+%\input{src/99-backmatter/pustaka}
+%\clearchapter
+
+% Alternatif manajemen daftar pustaka dengan \bibliography
+\bibliographystyle{apalike}
+\bibliography{src/references}
 
 %
 % Lampiran
 %
-\begin{appendix}
-	\input{etc/markLampiran}
-	\clearchapter
-	\setcounter{page}{2}
-	\input{src/99-backmatter/lampiran}
-\end{appendix}
+%\begin{appendix}
+%	\input{etc/markLampiran}
+%	%\clearchapter
+%	\setcounter{page}{2}
+%	\input{src/99-backmatter/lampiran}
+%\end{appendix}
 
 \end{document}

@@ -32,9 +32,9 @@
 %
 \usepackage{tocbibind}
 
-\usepackage{enumitem}
-\usepackage{booktabs}% http://ctan.org/pkg/booktabs
-\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+%\usepackage{enumitem}
+%\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+%\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 
 %
 % From [Wikipedia]:
@@ -85,6 +85,7 @@
 %
 % Digunakan untuk mengantur line spacing pada laporan. Umumnya spacing yang
 % digunakan adalah 1.5.
+% Memilih double space (2) sesuai aturan teknis penulisan skripsi.
 %
 \usepackage{setspace}
   \onehalfspacing
@@ -109,16 +110,18 @@
 % rumus.
 %
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
 
 %
 % Membantu penulisan diakhir halaman
 %
-\usepackage{afterpage}
+%\usepackage{afterpage}
 
 %
 % Membuat multi page table.
 %
-\usepackage{longtable}
+%\usepackage{longtable}
 
 %
 % Membuat seluruh tulisan menjadi Times New Roman.
@@ -186,36 +189,111 @@
 %
 % Digunakan untuk memasukkan kode program ke dalam berkas.
 %
-\usepackage{listings, xcolor, xparse}
-	\definecolor{codegreen}{rgb}{0,0.6,0}
-	\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-	\definecolor{codepurple}{rgb}{0.58,0,0.82}
-	\lstdefinestyle{uistyle}{
-		commentstyle=\color{codegreen},
-		keywordstyle=\color{magenta},
-		numberstyle=\tiny\color{codegray},
-		stringstyle=\color{codepurple},
-		basicstyle=\ttfamily\scriptsize,
-		breakatwhitespace=true,
-		breaklines=true,
-		captionpos=b,
-		keepspaces=true,
-		numbers=left,
-		numbersep=5pt,
-		showspaces=false,
-		showstringspaces=false,
-		showtabs=false,
-		tabsize=2
-	}
-    \lstset{style=uistyle}
+% \usepackage{listings, xcolor, xparse}
+% 	\definecolor{codegreen}{rgb}{0,0.6,0}
+% 	\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+% 	\definecolor{codepurple}{rgb}{0.58,0,0.82}
+% 	\lstdefinestyle{uistyle}{
+% 		commentstyle=\color{codegreen},
+% 		keywordstyle=\color{magenta},
+% 		numberstyle=\tiny\color{codegray},
+% 		stringstyle=\color{codepurple},
+% 		basicstyle=\ttfamily\scriptsize,
+% 		breakatwhitespace=true,
+% 		breaklines=true,
+% 		captionpos=b,
+% 		keepspaces=true,
+% 		numbers=left,
+% 		numbersep=5pt,
+% 		showspaces=false,
+% 		showstringspaces=false,
+% 		showtabs=false,
+% 		tabsize=2
+% 	}
+%     \lstset{style=uistyle}
 %
 % Digunakan untuk menambahkan sesuatu di akhir halaman
 %
-\usepackage{afterpage}
-\usepackage{changepage}
-\strictpagecheck
-\usepackage{everyshi}
+% \usepackage{afterpage}
+% \usepackage{changepage}
+% \strictpagecheck
+% \usepackage{everyshi}
 
+% Bibliography
+\usepackage{natbib}
+
+% Slanted fraction symbol
+\usepackage{nicefrac}
+
+% table of content matter
+\usepackage[titles]{tocloft}
+\renewcommand*{\cftdotsep}{2}
+\renewcommand*{\cftsecdotsep}{2}  % use dots in the section entries
+%\renewcommand*{\cftsubsecdotsep}{3}
+\let\oldcftchappresnum\cftchappresnum
+\renewcommand*{\cftchappresnum}{BAB \oldcftchappresnum}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}}
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}}
+%\renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
+%\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
+%\setlength{\cftchapnumwidth}{4em}
+%\setlength{\cftsubsubsecindent}{6em}
+%\setlength{\cftparaindent}{8em}
+\renewcommand*{\cftchapnumwidth}{4em}
+\renewcommand*{\cftsecnumwidth}{2.4em} % increase space for Roman numerals
+\renewcommand*{\cftsubsubsecindent}{5.8em} % reduce indent of subsubsection titles
+\renewcommand*{\cftsubsecnumwidth}{2em}
+\renewcommand*{\cftsubsubsecnumwidth}{2em}
+\renewcommand*{\cftparaindent}{7.8em}
+\renewcommand*{\cftparanumwidth}{2em}
+
+% Code listing
+\newlistof{listing}{lol}{Daftar Kode}
+\usepackage[newfloat]{minted}
+\usepackage{caption}
+\SetupFloatingEnvironment{listing}{name=\bo{Kode}}
+\setminted{
+	style=pastie,
+	autogobble,
+	linenos,
+	fontsize=\footnotesize,
+	breaklines,
+	breakanywhere,
+	python3,
+}
+
+\renewcommand{\theFancyVerbLine}{{\tiny{\arabic{FancyVerbLine}}}}
+
+% Set `listing` numbering to [chapter].[listing_num]
+\makeatletter
+\renewcommand*{\thelisting}{\thechapter.\arabic{listing}}
+\@addtoreset{listing}{chapter}
+\makeatother
+
+% Set listing frame
+\usepackage[framemethod=TikZ]{mdframed}
+\definecolor{code_bg}{rgb}{0.95,0.95,0.95}
+\mdfdefinestyle{code}{
+	backgroundcolor=code_bg,
+	roundcorner=2pt,
+	linewidth=0pt
+}
+\surroundwithmdframed[style=code]{minted}
+
+
+\renewcommand{\cftlistingpresnum}{\bo{Kode}~}
+\setlength{\cftlistingnumwidth}{1in}
+
+\renewcommand{\cftfigpresnum}{\figurename~}
+\setlength{\cftfignumwidth}{1in}
+
+\renewcommand{\cfttabpresnum}{\tablename~}
+\setlength{\cfttabnumwidth}{1in}
+
+% use tabularx
+\usepackage{tabularx}
+% dummy
+\usepackage{enumitem}
 
 %-----------------------------------------------------------------------------%
 % Konfigurasi
@@ -253,36 +331,38 @@
                                   {\large\bfseries}}
 \makeatother
 
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{4}
 
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{4}
 
 %
 % Atur header dan footer dalam dokumen.
 %
-\renewcommand{\headrulewidth}{0.0pt}
+%\renewcommand{\headrulewidth}{0.0pt}
 \fancyhf{}
-\fancypagestyle{standard}{
+%\fancypagestyle{standard}{
 	\fancyhead[L]{}
 	\fancyhead[C]{}
-	\fancyhead[R]{}
-	\fancyfoot[L]{}
-	\fancyfoot[C]{}
+	\fancyhead[R]{\thepage}
+	%\fancyfoot[L]{}
+	%\fancyfoot[C]{}
 	\renewcommand{\headrulewidth}{0.0pt}
-	\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
+	%\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
 	\renewcommand{\footrulewidth}{0.0pt}
-}
+%}
 
-\fancypagestyle{first-pages}{
-	\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
-	\fancyfoot[C]{\thepage}
-}
+% \fancypagestyle{first-pages}{
+% 	\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
+% 	\fancyfoot[C]{\thepage}
+% }
+
+\pagestyle{fancy}
 
 %
 % Add new chapter page count
 %
-\newcounter{chapterpagecount}[chapter] % Reset with an increment in chapter
-\EveryShipout{\stepcounter{chapterpagecount}} % Step every page
+%\newcounter{chapterpagecount}[chapter] % Reset with an increment in chapter
+%\EveryShipout{\stepcounter{chapterpagecount}} % Step every page
 
 
 %-----------------------------------------------------------------------------%
@@ -299,17 +379,17 @@
 \newcommand{\bo}[1]{\textbf{#1}}
 %
 %
-\newcommand{\m}[1]{\boldmath{ \( #1 \)}}
+\newcommand{\m}[1]{\bm{#1}}
 %
 %
-\newcommand{\mc}[1]{\boldmath{ \[ #1 \]}}
+%\newcommand{\mc}[1]{\boldmath{ \[ #1 \]}}
 %
 %
 \newcommand{\code}[1]{\texttt{#1}}
 %
 % Buat catatan kecil. Catatan akan ditampilkan dalam tabel.
 \newcommand{\todo}[1]{
-    \begin{tabular}{| p{1\textwidth} |}
+    \begin{tabular}{| p{13.5cm} |}
 		\rowcolor[rgb]{.9,.6,.6}
 		\bo{@todo} \\
 		\rowcolor[gray]{1.}
@@ -353,90 +433,99 @@
 \newcommand{\latex}{\LaTeX}
 %
 % Alias untuk menambahkan halaman baru setiap akhir bab
-\newcommand{\clearchapter}{
-	\ifodd\thechapterpagecount
-		\null
-		\thispagestyle{empty}
-		\addtocounter{page}{-1}
-		\newpage
-	\else
-	\fi
-	\setoddevenheader
-}
-\newcommand{\naiveoddclearchapter}{
-	\clearpage
-	\checkoddpage
-	\ifoddpage
-		\null
-		\thispagestyle{empty}
-		\addtocounter{page}{-1}
-		\newpage
-	\else
-	\fi
-}
-\newcommand{\naiveevenclearchapter}{
-	\clearpage
-	\checkoddpage
-	\ifoddpage
-	\else
-		\null
-		\thispagestyle{empty}
-		\addtocounter{page}{-1}
-		\newpage
-	\fi
-}
-\newcommand{\forceclearchapter}{
-	\clearpage
-	\null
-	\thispagestyle{empty}
-	\addtocounter{page}{-1}
-	\newpage
-}
-%
-% Alias untuk mengatur ulang konfigurasi footer setiap awal bab
-\newcommand{\setoddevenheader}{
-	\fancyhead{}
-	\ifodd\thepage
-		\fancyhead[RO,LE]{\thepage}
-	\else
-		\fancyhead[LO,RE]{\thepage}
-	\fi
-}
-%
-% Untuk membuat halaman kosong
-\newcommand\blankpage{
-	\null
-	\thispagestyle{empty}
-	\addtocounter{page}{-1}
-	\newpage
-}
-%
-% Untuk membuat daftar sumber gambar
-\newcommand*{\captionsource}[2]{
-	\caption[{#1}]{#1}\par
-	\footnotesize\textbf{Sumber:} #2\par
-}
+% \newcommand{\clearchapter}{
+% 	\ifodd\thechapterpagecount
+% 		\null
+% 		\thispagestyle{empty}
+% 		\addtocounter{page}{-1}
+% 		\newpage
+% 	\else
+% 	\fi
+% 	\setoddevenheader
+% }
+% \newcommand{\naiveoddclearchapter}{
+% 	\clearpage
+% 	\checkoddpage
+% 	\ifoddpage
+% 		\null
+% 		\thispagestyle{empty}
+% 		\addtocounter{page}{-1}
+% 		\newpage
+% 	\else
+% 	\fi
+% }
+% \newcommand{\naiveevenclearchapter}{
+% 	\clearpage
+% 	\checkoddpage
+% 	\ifoddpage
+% 	\else
+% 		\null
+% 		\thispagestyle{empty}
+% 		\addtocounter{page}{-1}
+% 		\newpage
+% 	\fi
+% }
+% \newcommand{\forceclearchapter}{
+% 	\clearpage
+% 	\null
+% 	\thispagestyle{empty}
+% 	\addtocounter{page}{-1}
+% 	\newpage
+% }
+% %
+% % Alias untuk mengatur ulang konfigurasi footer setiap awal bab
+% \newcommand{\setoddevenheader}{
+% 	\fancyhead{}
+% 	\ifodd\thepage
+% 		\fancyhead[RO,LE]{\thepage}
+% 	\else
+% 		\fancyhead[LO,RE]{\thepage}
+% 	\fi
+% }
+% %
+% % Untuk membuat halaman kosong
+% \newcommand\blankpage{
+% 	\null
+% 	\thispagestyle{empty}
+% 	\addtocounter{page}{-1}
+% 	\newpage
+% }
+% %
+% % Untuk membuat daftar sumber gambar
+% \newcommand*{\captionsource}[2]{
+% 	\caption[{#1}]{#1}\par
+% 	\footnotesize\textbf{Sumber:} #2\par
+% }
 
+\usepackage{changepage}
+% tanda tangan menjorok ke kanan
+\newenvironment{ttdkanan}{\begin{adjustwidth}{8cm}{}}{\end{adjustwidth}}
 
+% penomoran bab
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thesection{\Alph{section}.}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\renewcommand\thesubsubsection{\alph{subsubsection}.}
+\renewcommand\theparagraph{\roman{paragraph}.}
 
 %-----------------------------------------------------------------------------%
 % Ubah Istilah Penulisan
 %-----------------------------------------------------------------------------%
 %
 % Beberapa istilah yang tepat untuk digunakan dalam laporan.
-\renewcommand{\bibname}{Daftar Referensi}
+\renewcommand{\bibname}{\uppercase{Daftar Referensi}}
 %
 %
-\renewcommand{\contentsname}{Daftar Isi}
+\renewcommand{\contentsname}{\uppercase{Daftar Isi}}
 %
 %
-\renewcommand{\listfigurename}{Daftar Gambar}
+\renewcommand{\listfigurename}{\uppercase{Daftar Gambar}}
 %
 %
-\renewcommand{\listtablename}{Daftar Tabel}
+\renewcommand{\listtablename}{\uppercase{Daftar Tabel}}
 %
 %
-\renewcommand{\lstlistlistingname}{Daftar Kode Program}
+%\renewcommand{\lstlistlistingname}{Daftar Kode Program}
 %
 %
 \renewcommand{\chaptername}{BAB}
@@ -448,7 +537,7 @@
 \renewcommand{\tablename}{\bo{Tabel}}
 %
 %
-\renewcommand{\lstlistingname}{\bo{Kode}}
+%\renewcommand{\lstlistingname}{\bo{Kode}}
 %
 %
 \newcommand{\pic}{Gambar}
@@ -460,4 +549,4 @@
 \newcommand{\equ}{Persamaan}
 %
 %
-\newcommand{\lst}{Kode}
+%\newcommand{\lst}{Kode}
