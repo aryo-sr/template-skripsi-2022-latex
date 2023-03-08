@@ -8,4 +8,14 @@
 **/*.out
 **/*.toc
 **/*.synctex.gz
-thesis.pdf
+**/*.4ct
+**/*.4tc
+**/*.idv
+**/*.lg
+**/*.mk4
+**/*.odt
+**/*.tmp
+**/*.xdv
+**/*.xref
+/.kile
+/thesis.pdf

@@ -5,50 +5,109 @@
 % @version 1.02
 %
 
-\chapter*{HALAMAN PENGESAHAN}
+\thispagestyle{kopkampus}
+\enlargethispage{-3\baselineskip}
+%\chapter*{}
+
+% \begin{tabular}[t]{@{} l @{}}
+%   \includegraphics[height=3\normalbaselineskip]{assets/pics/logo-color.png} \\
+% \end{tabular}%
+% \hfill
+% \begin{tabular}[t]{@{} r @{}}
+%   \bfseries My Name \\
+%   \itshape Dept.\ of Science \\
+%   \itshape Prestigious University \\
+%   \itshape 000-000-0000 \\
+%   \itshape email@university.edu \\
+%   \itshape www.google.com \\
+% \end{tabular}
+
+% kop terinspirasi dari
+% https://www.overleaf.com/latex/templates/letterhead/zkvhmkzskgdm
+
+% \begin{figure}[!ht]
+% %\begin{minipage}{\textwidth}
+% \begin{center}
+% \begin{spacing}{.85}
+% \begin{tabular}[t]{l c}
+% \multirow{5}{*}{\includegraphics[width=0.15\linewidth]{assets/pics/logo-color.png}} &
+% \bo{KEMENTERIAN AGAMA REPUBLIK INDONESIA}  \\
+% & \small{\bo{UNIVERSITAS ISLAM NEGERI}} \\
+% & \small{\bo{K.H. ABDURRAHMAN WAHID PEKALONGAN}} \\
+% & \small{\bo{FAKULTAS \Fakultas}} \\
+% & \footnotesize{Jalan Pahlawan No. 52 Rowolaku Kajen Kab. Pekalongan} \\
+% & \footnotesize{Website: \websiteFakultas\ Email: \emailFakultas} \\
+% \end{tabular}
+%
+% % gambar garis kop
+% \hrule width \hsize \kern 0.5mm \hrule width \hsize height 2pt
+% \end{spacing}
+% \end{center}
+% %\end{minipage}
+% \end{figure}
+
+\chapter*{P E N G E S A H A N}
 
 \vspace*{0.4cm}
-\noindent
+
+Dekan Fakultas \fakultas\ Universitas Islam Negeri (UIN) K.H. Abdurrahman Wahid Pekalongan mengesahkan \type\ Saudara:\\
 
 \noindent
-\begin{tabular}{ll p{9cm}}
-	\type~ini diajukan oleh&: & \\
-	Nama&: & \penulis \\
-	NPM&: & \npm \\
-	Program Studi&: & \program \\
-	Judul \type&: & \judul \\
-\end{tabular} \\
+\begin{tabularx}{\linewidth}{@{}l l @{\hspace{.5em}}X@{}}
+	%\type~ini diajukan oleh&: & \\
+	Nama&: & \bo{\penulis} \\
+	NIM&: & \bo{\nim} \\
+	%Jurusan&: & \program \\
+	Judul \Type&: & \bo{\judul} \\
+\end{tabularx} \\
 
-\vspace*{1.0cm}
+\vspace*{1.5em}
 
-\noindent \bo{Telah berhasil dipertahankan di hadapan Dewan Penguji
-dan diterima sebagai bagian persyaratan yang diperlukan untuk
-memperoleh gelar \gelar~pada Program Studi \program, Fakultas
-\fakultas, Universitas Indonesia.}\\[0.2cm]
+Telah diujikan pada hari \hariLulus\ tanggal \tanggalLulus\ dan dinyatakan
+\bo{\underline{LULUS}} serta diterima sebagai salah satu syarat guna
+memperoleh gelar \gelar.\\[0.2cm]
 
 \begin{center}
-	\bo{DEWAN PENGUJI}
+	Dewan Penguji,
 \end{center}
 
-\vspace*{0.3cm}
+\vspace*{0cm}
 
-\begin{tabular}{l l l l }
-	& & & \\
-	Pembimbing 1&: & \pembimbingSatu & (\hspace*{3.0cm}) \\
-	& & & \\
-	Pembimbing 2&: & \pembimbingDua & (\hspace*{3.0cm}) \\
-	& & & \\
-	Penguji 1&: & \pengujiSatu & (\hspace*{3.0cm}) \\
-	& & & \\
-	Penguji 2&: & \pengujiDua & (\hspace*{3.0cm}) \\
-\end{tabular}\\
+% \begin{tabular}{l l l l }
+% 	& & & \\
+% 	Pembimbing 1&: & \pembimbingSatu & (\hspace*{3.0cm}) \\
+% 	& & & \\
+% 	Pembimbing 2&: & \pembimbingDua & (\hspace*{3.0cm}) \\
+% 	& & & \\
+% 	Penguji 1&: & \pengujiSatu & (\hspace*{3.0cm}) \\
+% 	& & & \\
+% 	Penguji 2&: & \pengujiDua & (\hspace*{3.0cm}) \\
+% \end{tabular}\\
 
-\vspace*{2.0cm}
+% \vspace*{2.0cm}
+%
+% \begin{tabular}{ll l}
+% 	Ditetapkan di&: & Depok\\
+% 	Tanggal&: & \tanggalLulus \\
+% \end{tabular}
 
-\begin{tabular}{ll l}
-	Ditetapkan di&: & Depok\\
-	Tanggal&: & \tanggalLulus \\
-\end{tabular}
+\begin{center}
+\begin{multicols}{2}
+Penguji I\\[3em]
+\underline{\bo{\pengujiSatu}}\\[-0.6em]
+NIP \nipPengujiSatu
+
+Penguji II\\[3em]
+\underline{\bo{\pengujiDua}}\\[-0.6em]
+NIP \nipPengujiDua
+\end{multicols}
+
+Pekalongan, \tanggalLulus\\[-0.6em]
+Dekan Fakultas \fakultas\\[3em]
+
+\underline{\bo{(Nama Dekan)}}\\[-0.6em]
+NIP 123456789
+\end{center}
 
 
 \newpage

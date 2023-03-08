@@ -30,7 +30,7 @@
 % to work with the four standard book, report, article and proc classes, and to
 % a limited extent with the ltxdoc class.
 %
-\usepackage{tocbibind}
+%\usepackage{tocbibind}
 
 %\usepackage{enumitem}
 %\usepackage{booktabs}% http://ctan.org/pkg/booktabs
@@ -98,7 +98,7 @@
 % document. The package must be called in the preamble of the document and
 % specified when called.
 %
-\usepackage[paper=a4paper,headheight=0pt,left=3cm,top=3cm,right=3cm,bottom=3cm]{geometry}
+\usepackage[paper=a4paper,headheight=0pt,left=4cm,top=4cm,right=3cm,bottom=3cm]{geometry}
 
 %
 % Digunakan untuk mengatur caption dalam dokumen.
@@ -134,6 +134,12 @@
 \usepackage{fancyhdr}
 
 %
+% Menampilkan garis tepi untuk mengukur margin
+%
+\usepackage{showframe} % show margins
+\renewcommand*\ShowFrameColor{\color{red}}
+
+%
 % Package untuk memasukan berkas pdf sebagai bagian dari dokumen.
 %
 \usepackage{pdfpages}
@@ -149,10 +155,19 @@
 \ChNameVar{\centering\large\rm\bfseries}
 \ChNumVar{\large\bfseries}
 \ChTitleVar{\centering\large\rm\bfseries}
-\ChRuleWidth{0pt}
+%\ChRuleWidth{1pt}
+\newlength{\beforechapter}
+\newlength{\afterchapter}
 
+\setlength{\beforechapter}{-3\baselineskip} % substract some space before the chapter title <<<<<<
+\setlength{\afterchapter}{2\baselineskip} % add space after chapter title   <<<<<<<<<<<<<
+
+\makeatletter
 \renewcommand{\DOCH}{%
+	\vskip \beforechapter
+	%\mghrulefill{3\RW}\par\nobreak
 	%\vskip -0.5\baselineskip
+	%\par\nobreak
 	\CNV\FmN{\@chapapp}\space \CNoV\thechapter
 	\par\nobreak
 	%\vskip -0.5\baselineskip
@@ -167,6 +182,19 @@
 	\CTV\FmTi{#1}\par\nobreak
 	\vskip 10\p@
 }
+
+\def\@makeschapterhead#1{%
+    \vspace*{25\p@}%
+    \vskip \beforechapter
+    {\parindent \z@ %\raggedright
+        \normalfont
+        \interlinepenalty\@M
+        \DOTIS{#1}
+        \vskip -20\p@
+        \vskip \afterchapter
+    }
+}
+\makeatother
 
 %
 % Digunakan untuk membuat tabel berwarna-warni.
@@ -220,7 +248,7 @@
 % \usepackage{everyshi}
 
 % Bibliography
-\usepackage{natbib}
+\RequirePackage[natbibapa,tocbib]{apacite}
 
 % Slanted fraction symbol
 \usepackage{nicefrac}
@@ -246,6 +274,12 @@
 \renewcommand*{\cftsubsubsecnumwidth}{2em}
 \renewcommand*{\cftparaindent}{7.8em}
 \renewcommand*{\cftparanumwidth}{2em}
+
+% Jarak baris pertama paragraph yang menjorok
+\usepackage{indentfirst}
+\setlength\parindent{1cm}
+%\usepackage{titlesec}
+%\titlespacing*{\paragraph}{0pt}{0pt}{1cm}
 
 % Code listing
 \newlistof{listing}{lol}{Daftar Kode}
@@ -290,10 +324,24 @@
 \renewcommand{\cfttabpresnum}{\tablename~}
 \setlength{\cfttabnumwidth}{1in}
 
+
+\usepackage{changepage}
+% tanda tangan menjorok ke kanan
+\newenvironment{ttdkanan}{\begin{adjustwidth}{8cm}{}}{\end{adjustwidth}}
+
+% penomoran bab
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thesection{\Alph{section}.}
+\renewcommand\thesubsection{\arabic{subsection}.}
+\renewcommand\thesubsubsection{\alph{subsubsection}.}
+\renewcommand\theparagraph{\roman{paragraph}.}
+
+
 % use tabularx
 \usepackage{tabularx}
 % dummy
 \usepackage{enumitem}
+\usepackage{lipsum}
 
 %-----------------------------------------------------------------------------%
 % Konfigurasi
@@ -340,7 +388,7 @@
 %
 %\renewcommand{\headrulewidth}{0.0pt}
 \fancyhf{}
-%\fancypagestyle{standard}{
+\fancypagestyle{standard}{
 	\fancyhead[L]{}
 	\fancyhead[C]{}
 	\fancyhead[R]{\thepage}
@@ -349,15 +397,59 @@
 	\renewcommand{\headrulewidth}{0.0pt}
 	%\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
 	\renewcommand{\footrulewidth}{0.0pt}
-%}
+	\setlength{\headheight}{0pt}
+}
 
 % \fancypagestyle{first-pages}{
 % 	\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
 % 	\fancyfoot[C]{\thepage}
 % }
 
-\pagestyle{fancy}
+\fancypagestyle{kopkampus}{%
+    \fancyhf{}
+    %\fancyhead[C]{
+    %\begin{figure}
+	%\begin{minipage}{\textwidth}
+	%\begin{center}
+	%\begin{spacing}{.85}
+	%\begin{tabular}[b]{l c}
+% 	\multirow{5}{*}{
+% 		\includegraphics[width=0.15\linewidth]{assets/pics/logo-color.png}
+% 	} & \bo{KEMENTERIAN AGAMA REPUBLIK INDONESIA}  \\
+% 	& \small{\bo{UNIVERSITAS ISLAM NEGERI}} \\
+% 	& \small{\bo{K.H. ABDURRAHMAN WAHID PEKALONGAN}} \\
+% 	& \small{\bo{FAKULTAS \Fakultas}} \\
+% 	& \footnotesize{Jalan Pahlawan No. 52 Rowolaku Kajen Kab. Pekalongan} \\
+% 	& \footnotesize{Website: \websiteFakultas\ Email: \emailFakultas} \\
+	%abc & def
+	%\end{tabular}
 
+	% gambar garis kop
+	%\hrule width \hsize \kern 0.5mm \hrule width \hsize height 2pt
+	%\end{spacing}
+	%\end{center}
+	%\end{minipage}
+	%\end{figure}
+	%}
+
+% 	\fancyhead[RO, LE]{%
+% 		\begin{tabular}[b]{@{}l@{}}
+% 		\arrayrulecolor{blue!75}
+% 		safasf \\
+% 			\\\hline
+% 		\end{tabular}%
+% 	}
+
+    \fancyhead[L]{UIN GUSDUR}
+    \fancyhead[C]{}
+    \fancyhead[R]{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \setlength{\headheight}{7em}
+}
+
+%\pagestyle{standard}
+%\fancyhf{}
 %
 % Add new chapter page count
 %
@@ -497,16 +589,15 @@
 % 	\footnotesize\textbf{Sumber:} #2\par
 % }
 
-\usepackage{changepage}
-% tanda tangan menjorok ke kanan
-\newenvironment{ttdkanan}{\begin{adjustwidth}{8cm}{}}{\end{adjustwidth}}
+% kop surat pengesahan
+%\usepackage{eso-pic}
 
-% penomoran bab
-\renewcommand\thechapter{\Roman{chapter}}
-\renewcommand\thesection{\Alph{section}.}
-\renewcommand\thesubsection{\arabic{subsection}.}
-\renewcommand\thesubsubsection{\alph{subsubsection}.}
-\renewcommand\theparagraph{\roman{paragraph}.}
+% \newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+%   \setbox0=\hbox{#3}% Put <stuff> in a box
+%   \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+%     \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+%   }%
+% }%
 
 %-----------------------------------------------------------------------------%
 % Ubah Istilah Penulisan

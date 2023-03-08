@@ -31,6 +31,8 @@
 % Awal bagian penulisan laporan
 \begin{document}
 
+\pagestyle{standard}
+
 %
 % Sampul Laporan
 \input{src/sampul}
@@ -62,26 +64,33 @@
 \addChapter{LEMBAR NOTA PEMBIMBING}
 \input{src/00-frontmatter/03-nota_pembimbing}
 %\forceclearchapter
+%\clearpage
 %
+%\pagestyle{kopkampus}
 \addChapter{LEMBAR PENGESAHAN}
 \input{src/00-frontmatter/04-pengesahan_sidang}
 %\forceclearchapter
+%\clearpage
 %
 %
-\addChapter{LEMBAR MOTTO dan PERSEMBAHAN}
-\input{src/00-frontmatter/05-motto_persembahan}
+%\pagestyle{standard}
+\setcounter{page}{5}
+\addChapter{LEMBAR MOTTO}
+\input{src/00-frontmatter/05-motto}
 %\forceclearchapter
 %
 %
+\addChapter{LEMBAR PERSEMBAHAN}
+\input{src/00-frontmatter/06-persembahan}
+%
+%
 \addChapter{ABSTRAK}
-\input{src/00-frontmatter/06-abstrak}
-%
-%
 \input{src/00-frontmatter/07-abstract}
 %
 \addChapter{\kataPengantar}
 \input{src/00-frontmatter/08-pengantar}
 %
+
 %
 % Daftar isi, gambar, tabel, dan kode
 %
@@ -90,16 +99,24 @@
 \tableofcontents
 %\onehalfspacing
 \clearpage
-\phantomsection %hack to make them clickable
-%\singlespacing
-\listoffigures
-%\onehalfspacing
-\clearpage
+
+%
+\addChapter{PEDOMAN TRANSLITERASI}
+\input{src/00-frontmatter/09-transliterasi}
+%
+
 \phantomsection %hack to make them clickable
 %\singlespacing
 \listoftables
 %\onehalfspacing
 \clearpage
+
+\phantomsection %hack to make them clickable
+%\singlespacing
+\listoffigures
+%\onehalfspacing
+\clearpage
+
 %\phantomsection %hack to make them clickable
 %\addcontentsline{toc}{chapter}{\lstlistlistingname}
 %\singlespacing
@@ -140,7 +157,7 @@
 %\clearchapter
 
 % Alternatif manajemen daftar pustaka dengan \bibliography
-\bibliographystyle{apalike}
+\bibliographystyle{apacite}
 \bibliography{src/references}
 
 %
