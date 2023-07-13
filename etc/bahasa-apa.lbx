@@ -1,0 +1,290 @@
+\ProvidesFile{bahasa-apa.lbx}[2022/06/22\space v9.16\space APA biblatex localisation]
+\InheritBibliographyExtras{american}
+
+\NewBibliographyString{publication}
+\NewBibliographyString{jourarticle}
+\NewBibliographyString{revisededition}
+\NewBibliographyString{typechair}
+\NewBibliographyString{typechairs}
+\NewBibliographyString{typevolume}
+\NewBibliographyString{typevolumes}
+\NewBibliographyString{typeseries}
+\NewBibliographyString{typeseriess}
+\NewBibliographyString{typevolseries}
+\NewBibliographyString{typevolseriess}
+\NewBibliographyString{on}
+\NewBibliographyString{retrieved}
+\NewBibliographyString{available}
+\NewBibliographyString{from}
+\NewBibliographyString{archivedat}
+\NewBibliographyString{origyear}
+\NewBibliographyString{reviewof}
+\NewBibliographyString{with}
+\NewBibliographyString{supplement}
+\NewBibliographyString{commenton}
+\NewBibliographyString{manunpub}
+\NewBibliographyString{maninprep}
+\NewBibliographyString{mansub}
+\NewBibliographyString{producer}
+\NewBibliographyString{producers}
+\NewBibliographyString{execproducer}
+\NewBibliographyString{execproducers}
+\NewBibliographyString{execdirector}
+\NewBibliographyString{execdirectors}
+\NewBibliographyString{director}
+\NewBibliographyString{directors}
+\NewBibliographyString{writer}
+\NewBibliographyString{writers}
+\NewBibliographyString{host}
+\NewBibliographyString{hosts}
+\NewBibliographyString{guestexpert}
+\NewBibliographyString{guestexperts}
+\NewBibliographyString{narrator}
+\NewBibliographyString{narrators}
+\NewBibliographyString{film}
+\NewBibliographyString{tvseries}
+\NewBibliographyString{tvepisode}
+\NewBibliographyString{video}
+\NewBibliographyString{song}
+\NewBibliographyString{album}
+\NewBibliographyString{podcast}
+\NewBibliographyString{podcastepisode}
+\NewBibliographyString{interview}
+\NewBibliographyString{speech}
+\NewBibliographyString{lithograph}
+\NewBibliographyString{map}
+\NewBibliographyString{lecturenotes}
+\NewBibliographyString{powerpoint}
+\NewBibliographyString{photograph}
+\NewBibliographyString{photographs}
+\NewBibliographyString{present}
+\NewBibliographyString{painting}
+\NewBibliographyString{article}
+\NewBibliographyString{unitednations}
+\NewBibliographyString{charter}
+\NewBibliographyString{ofthe}
+\NewBibliographyString{tothe}
+
+\DeclareBibliographyStrings{%
+  inherit          = {american},
+%  jourarticle      = {{article}{article}},%FIXME
+%  tothe            = {{to\space the}{to\space the}},%FIXME
+%  ofthe            = {{of\space the}{of\space the}},%FIXME
+%  unitednations    = {{United\space Nations}{U\adddot N\adddot}},
+%  charter          = {{charter}{charter}},
+%  article          = {{article}{art\adddot}},%FIXME
+%  painting         = {{painting}{painting}},%FIXME
+  present          = {{present}{present}},
+%  song             = {{song}{song}},%FIXME
+%  album            = {{album}{album}},%FIXME
+%  map              = {{map}{map}},%FIXME
+%  photograph       = {{photograph}{photograph}},%FIXME
+%  photographs      = {{photographs}{photographs}},%FIXME
+%  powerpoint       = {{Powerpoint\space slides}{Powerpoint\space slides}},%FIXME
+%  lecturenotes     = {{lecturenotes}{lecturenotes}},%FIXME
+%  podcast          = {{audio\space podcast}{audio\space podcast}},%FIXME
+%  podcastepisode   = {{audio\space podcast\space episode}{audio\space podcast\space episode}},%FIXME
+%  interview        = {{interview}{interview}},%FIXME
+%  speech           = {{speech\space audio\space recording}{speech\space audio\space recording}},%FIXME
+%  lithograph       = {{lithograph}{lith\adddot}},%FIXME
+%  video            = {{video}{video}},%FIXME
+%  film             = {{film}{film}},%FIXME
+%  tvseries         = {{TV\space series}{TV\space series}},%FIXME
+%  tvepisode        = {{TV\space series\space episode}{TV\space series\space episode}},%FIXME
+%  narrator         = {{narrator}{narr\adddot}},%FIXME
+%  narrators        = {{narrators}{narrs\adddot}},%FIXME
+  producer         = {{producer}{producer}},
+%  producers        = {{producers}{producers}},
+  execproducer     = {{Executive\space Producer}{Exec\adddot\space Prod\adddot}},
+%   execproducers    = {{Executive\space Producers}{Exec\adddot\space Prods\adddot}},
+%   execdirector     = {{Executive\space Director}{Exec\adddot\space Dir\adddot}},
+%   execdirectors    = {{Executive\space Directors}{Exec\adddot\space Dirs\adddot}},
+  director         = {{director}{dir\adddot}},
+%   directors        = {{directors}{dirs\adddot}},
+  writer           = {{writer}{writer}},
+%   writers          = {{writers}{writers}},
+%   host             = {{host}{host}},
+%   hosts            = {{hosts}{hosts}},
+%   guestexpert      = {{Guest\space Expert}{Guest\space Expert}},
+%   guestexperts     = {{Guest\space Experts}{Guest\space Experts}},
+  with             = {{with}{with}},
+%   manunpub         = {{unpublished\space manuscript}{unpublished\space manuscript}},
+%   maninprep        = {{manuscript\space in\space preparation}{manuscript\space in\space preparation}},
+%   mansub           = {{manuscript\space submitted\space for\space publication}{manuscript\space submitted\space for\space publication}},
+%   supplement       = {{supplement}{suppl\adddot}},
+%   part             = {{part}{pt\adddot}},
+  revisededition   = {{Revised\space Edition}{rev\adddotspace ed\adddot}},
+%   commenton        = {{comment\space on}{comment\space on}},
+  page             = {{Halaman}{{}hal\adddot}},
+  pages            = {{Halaman}{{}hal\adddot}},
+  on               = {{on}{on}},
+  retrieved        = {{retrieved}{retrieved}},
+  available        = {{available}{available}},
+  from             = {{from}{from}},
+  archivedat       = {{archived\space at}{archived\space at}},
+  reprintas        = {{reprinted as}{reprinted as}},
+  reprintfrom      = {{reprinted from}{reprinted from}},
+  reviewof         = {{review\space of}{review\space of}},
+%   paragraph        = {{paragraph}{para\adddot}},
+%   paragraphs       = {{paragraphs}{paras\adddot}},
+  mathesis         = {{Master's\addabbrvspace thesis}{Master's\addabbrvspace thesis}},
+  phdthesis        = {{Doctoral\addabbrvspace dissertation}{Doctoral\addabbrvspace dissertation}},
+%   bathesis         = {{Skripsi}{Skripsi}},
+  origyear         = {{original\space work\space published}{original\space work\space published}},
+  typechair        = {{Chair}{Chair}},
+  typechairs       = {{Chairs}{Chairs}},
+  typevolume       = {{Volume\space Editor}{Vol\adddotspace Ed\adddot}},
+  typevolumes      = {{Volume\space Editors}{Vol\adddotspace Eds\adddot}},
+  typeseries       = {{Series\space Editor}{Series\space Ed\adddot}},
+  typeseriess      = {{Series\space Editors}{Series\space Eds\adddot}},
+  typevolseries    = {{Series\space and\space Volume\space Editor}{Series\space\& Vol\adddotspace Ed\adddot}},
+  typevolseriess   = {{Series\space and\space Volume\space Editors}{Series\space\& Vol\adddotspace Eds\adddot}},
+%   annodomini       = {{A\adddot D\adddot}{A\adddot D\adddot}},
+%   beforechrist     = {{B\adddot C\adddot}{B\adddot C\adddot}},
+%   commonera        = {{C\adddot E\adddot}{C\adddot E\adddot}},
+%   beforecommonera  = {{B\adddot C\adddot E\adddot}{B\adddot C\adddot E\adddot}},
+  publication      = {{Publication}{Publication}},
+  see              = {{lihat}{lihat}},
+  seealso          = {{lihat pula}{lihat pula}},
+  backrefpage      = {{cited on page}{cit\adddotspace on p\adddot}},
+  backrefpages     = {{cited on pages}{cit\adddotspace on pp\adddot}},
+  january          = {{Januari}{Jan\adddot}},
+  february         = {{Februari}{Feb\adddot}},
+  march            = {{Maret}{Mar\adddot}},
+  april            = {{April}{Apr\adddot}},
+  may              = {{Mei}{Mei}},
+  june             = {{Juni}{Juni}},
+  july             = {{Juli}{Juli}},
+  august           = {{Agustus}{Agt\adddot}},
+  september        = {{September}{Sept\adddot}},
+  october          = {{Oktober}{Okt\adddot}},
+  november         = {{November}{Nov\adddot}},
+  december         = {{Desember}{Des\adddot}},
+%   collaborator     = {{kolaborator}{kolab\adddot}},% FIXME: unsure
+%   collaborators    = {{tim kolaborator}{timkolab\adddot}},% FIXME: unsure
+%   translator       = {{penerjemah}{pent\adddot}},
+%   translators      = {{tim penerjemah}{timpent\adddot}},
+%   commentator      = {{komentator}{kom\adddot}},
+%   commentators     = {{tim komentator}{timkom\adddot}},
+%   annotator        = {{annotator}{annot\adddot}},
+%   annotators       = {{annotators}{annot\adddot}},
+%   commentary       = {{komentar}{koment\adddot}},
+%   annotations      = {{anotasi}{anot\adddot}},
+  urlseen          = {{dikunjungi pada}{dikunjungi pd\adddot}},
+  seenote          = {{lihat catatan}{lihat cttn\adddot}},
+  in               = {{di dalam}{di dalam}},
+  inseries         = {{di dalam}{di dalam}},
+  nodate           = {{tanpa tanggal}{tnp\adddot tgl\adddot}},
+  bypublisher      = {{diterbitkan oleh}{penerbit}},
+  and              = {{dan}{dan}},
+  bibliography     = {{Bibliografi}{Bibliografi}},
+  references       = {{Referensi}{Referensi}},
+  shorthands       = {{Daftar Singkatan}{Singkatan-singkatan}},
+  editor           = {{editor}{ed\adddot}},
+  editors          = {{tim editor}{timed\adddot}},
+%   compiler         = {{compiler}{comp\adddot}},
+%   compilers        = {{compilers}{comp\adddot}},
+  redactor         = {{redaktur}{red\adddot}},
+  redactors        = {{tim redaktur}{timred\adddot}}
+}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Drop end* when they are the same as *
+% You must use \print*date to get here otherwise it will be ignored
+
+% \DeclareBibliographyExtras{%
+%   \def\urldatecomma{\addcomma\addspace}%
+%   \protected\def\mkbibdateapalong#1#2#3#4{%
+%     % As per 10.1, Articles only have year
+%     \ifboolexpr{ test {\ifentrytype{article}}
+%                  and not test {\iffieldequalstr{entrysubtype}{nonacademic}} }
+%       {\clearfield{labelmonth}%
+%        \clearfield{labelday}}
+%       {}%
+%     \iffieldundef{#1}% YEAR
+%       {}%
+%       {\iffieldbibstring{#1}{\bibncpstring{\thefield{#1}}}{\thefield{#1}}}%
+%     \iffieldundef{#2}% YEARDIVISION
+%       {}%
+%       {\iffieldundef{#1}%
+%         {}%
+%         {\addcomma\addspace}%
+%        \iffieldbibstring{#2}{\bibcplstring{\thefield{#2}}}{\thefield{#2}}}%
+%     \iffieldundef{#3}% MONTH
+%       {}%
+%       {\iffieldundef{#1}%
+%         {}%
+%         {\addcomma\addspace}%
+%        \mkbibmonth{\thefield{#3}}}%
+%     \iffieldundef{#4}% DAY
+%       {}%
+%       {\iffieldundef{#3}%
+%         {}%
+%         {\addspace}%
+%        \stripzeros{\thefield{#4}}}}%
+%   \protected\def\mkbibdateapalongextra#1#2#3#4{%
+%     % As per 10.1, Articles only have year
+%     \ifboolexpr{ test {\ifentrytype{article}}
+%                  and not test {\iffieldequalstr{entrysubtype}{nonacademic}} }
+%       {\clearfield{labelmonth}%
+%        \clearfield{labelday}}
+%       {}%
+%     \iffieldundef{#1}% YEAR
+%       {}%
+%       {\iffieldbibstring{#1}{\bibncpstring{\thefield{#1}}}{\thefield{#1}}\printfield{extradate}}%
+%     \iffieldundef{#2}% YEARDIVISION
+%       {}%
+%       {\iffieldundef{#1}%
+%         {}%
+%         {\addcomma\addspace}%
+%        \iffieldbibstring{#2}{\bibcplstring{\thefield{#2}}}{\thefield{#2}}}%
+%     \iffieldundef{#3}% MONTH
+%       {}%
+%       {\iffieldundef{#1}%
+%         {}%
+%         {\addcomma\addspace}%
+%        \mkbibmonth{\thefield{#3}}}%
+%     \iffieldundef{#4}% DAY
+%       {}%
+%       {\iffieldundef{#3}%
+%         {}%
+%         {\addspace}%
+%        \stripzeros{\thefield{#4}}}}%
+%   \protected\def\mkbibdateapalongmdy#1#2#3#4{%
+%     % As per 10.1, Articles only have year
+%     \ifboolexpr{ test {\ifentrytype{article}}
+%                  and not test {\iffieldequalstr{entrysubtype}{nonacademic}} }
+%       {\clearfield{labelmonth}%
+%        \clearfield{labelday}}
+%       {}%
+%     \iffieldundef{#2}% YEARDIVISION
+%       {}%
+%       {\iffieldundef{#1}%
+%         {}%
+%         {\addcomma\addspace}%
+%        \iffieldbibstring{#2}{\bibcplstring{\thefield{#2}}}{\thefield{#2}}}%
+%     \iffieldundef{#3}% MONTH
+%       {}%
+%       {\mkbibmonth{\thefield{#3}}}%
+%     \iffieldundef{#4}% DAY
+%       {}%
+%       {\addspace}%
+%        \stripzeros{\thefield{#4}}%
+%     \iffieldundef{#1}% YEAR
+%       {}%
+%       {\iffieldundef{#4}%
+%         {\iffieldundef{#3}%
+%           {}%
+%           {\addspace}}%
+%         {\addcomma\addspace}%
+%        \iffieldbibstring{#1}{\bibncpstring{\thefield{#1}}}{\thefield{#1}}}}}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\endinput
+ 

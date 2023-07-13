@@ -1,10 +1,23 @@
 %
 % Daftar Pustaka
 %
-
+\chapter*{DAFTAR PUSTAKA}
+\addChapter{DAFTAR PUSTAKA}
 %
 % Tambahkan pustaka yang digunakan setelah perintah berikut.
 %
-\phantomsection %hack to add clickable section for pustaka
-\bibliographystyle{ieeetr}
-\bibliography{references}
+%\phantomsection %hack to add clickable section for pustaka
+% \bibliographystyle{ieeetr}
+% \bibliography{references}
+\begin{otherlanguage}{english}
+%\nocite{*}
+% \subsection*{Buku}
+% \noindent\textbf{Buku dan \textit{E-Book}}
+%-----------------------------------------------------------------------------%
+% \begingroup
+\setstretch{1}
+\setlength\bibitemsep{12pt}
+\printbibliography[heading=none]
+% \endgroup
+
+\end{otherlanguage}

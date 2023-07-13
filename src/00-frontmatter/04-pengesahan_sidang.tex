@@ -2,55 +2,49 @@
 % Halaman Pengesahan Sidang
 %
 % @author  Andreas Febrian, Andre Tampubolon
-% @version 1.02
+% @author  Slamet B. Aryo
+% @version 1.10
 %
-
-\thispagestyle{kopkampus}
-\enlargethispage{-3\baselineskip}
-%\chapter*{}
-
-% \begin{tabular}[t]{@{} l @{}}
-%   \includegraphics[height=3\normalbaselineskip]{assets/pics/logo-color.png} \\
-% \end{tabular}%
-% \hfill
-% \begin{tabular}[t]{@{} r @{}}
-%   \bfseries My Name \\
-%   \itshape Dept.\ of Science \\
-%   \itshape Prestigious University \\
-%   \itshape 000-000-0000 \\
-%   \itshape email@university.edu \\
-%   \itshape www.google.com \\
-% \end{tabular}
+\BgThispage
+% \thispagestyle{kopkampus}
+% \enlargethispage{3\baselineskip}
+% \vspace*{-10\baselineskip}
+\vspace*{-2\baselineskip}
 
 % kop terinspirasi dari
 % https://www.overleaf.com/latex/templates/letterhead/zkvhmkzskgdm
 
-% \begin{figure}[!ht]
-% %\begin{minipage}{\textwidth}
-% \begin{center}
-% \begin{spacing}{.85}
-% \begin{tabular}[t]{l c}
-% \multirow{5}{*}{\includegraphics[width=0.15\linewidth]{assets/pics/logo-color.png}} &
-% \bo{KEMENTERIAN AGAMA REPUBLIK INDONESIA}  \\
-% & \small{\bo{UNIVERSITAS ISLAM NEGERI}} \\
-% & \small{\bo{K.H. ABDURRAHMAN WAHID PEKALONGAN}} \\
-% & \small{\bo{FAKULTAS \Fakultas}} \\
-% & \footnotesize{Jalan Pahlawan No. 52 Rowolaku Kajen Kab. Pekalongan} \\
-% & \footnotesize{Website: \websiteFakultas\ Email: \emailFakultas} \\
-% \end{tabular}
-%
-% % gambar garis kop
-% \hrule width \hsize \kern 0.5mm \hrule width \hsize height 2pt
-% \end{spacing}
-% \end{center}
-% %\end{minipage}
-% \end{figure}
+\begin{figure}[!ht]
+%\begin{minipage}{\textwidth}
+\begin{center}
+\begin{spacing}{.85}
+\begin{tabular}[t]{l c}
+\multirow{5}{*}{\includegraphics[width=0.15\linewidth]{assets/pics/logo-color.ps}} &
+\bo{KEMENTERIAN AGAMA REPUBLIK INDONESIA}  \\
+& \small{\bo{UNIVERSITAS ISLAM NEGERI}} \\
+& \small{\bo{K.H. ABDURRAHMAN WAHID PEKALONGAN}} \\
+& \small{\bo{FAKULTAS \Fakultas}} \\
+& \scriptsize{Jalan Pahlawan No. 52 Rowolaku Kajen, Pekalongan Tlp. (0285) 412575, Fax. (0285) 423418} \\
+& \scriptsize{Website: \websiteFakultas\ Email: \emailFakultas} \\
+\end{tabular}
 
-\chapter*{P E N G E S A H A N}
+% gambar garis kop
+\hrule width \hsize \kern 0.5mm \hrule width \hsize height 2pt
+\end{spacing}
+\end{center}
+%\end{minipage}
+\end{figure}
+
+\vspace*{-1cm}
+
+% \chapter*{P E N G E S A H A N}
+\begin{center}
+{\textbf{P E N G E S A H A N}}
+\end{center}
 
 \vspace*{0.4cm}
 
-Dekan Fakultas \fakultas\ Universitas Islam Negeri (UIN) K.H. Abdurrahman Wahid Pekalongan mengesahkan \type\ Saudara:\\
+Dekan Fakultas \fakultas\ Universitas Islam Negeri (UIN) K.H. Abdurrahman Wahid Pekalongan mengesahkan \type\ Saudara/i:\\
 
 \noindent
 \begin{tabularx}{\linewidth}{@{}l l @{\hspace{.5em}}X@{}}
@@ -59,54 +53,44 @@ Dekan Fakultas \fakultas\ Universitas Islam Negeri (UIN) K.H. Abdurrahman Wahid 
 	NIM&: & \bo{\nim} \\
 	%Jurusan&: & \program \\
 	Judul \Type&: & \bo{\judul} \\
+        Dosen Pembimbing&: & \bo{\pembimbingSatu} \\
 \end{tabularx} \\
 
-\vspace*{1.5em}
+\vspace*{0.5em}
 
-Telah diujikan pada hari \hariLulus\ tanggal \tanggalLulus\ dan dinyatakan
+%Telah diujikan pada hari ............. tanggal .......................... dan dinyatakan
+Telah diujikan pada hari \hariLulus~tanggal \tanggalLulus~dan dinyatakan
 \bo{\underline{LULUS}} serta diterima sebagai salah satu syarat guna
-memperoleh gelar \gelar.\\[0.2cm]
+memperoleh gelar \gelar.%\\[0.2cm]
 
 \begin{center}
 	Dewan Penguji,
 \end{center}
 
-\vspace*{0cm}
+\vspace*{-1cm}
 
-% \begin{tabular}{l l l l }
-% 	& & & \\
-% 	Pembimbing 1&: & \pembimbingSatu & (\hspace*{3.0cm}) \\
-% 	& & & \\
-% 	Pembimbing 2&: & \pembimbingDua & (\hspace*{3.0cm}) \\
-% 	& & & \\
-% 	Penguji 1&: & \pengujiSatu & (\hspace*{3.0cm}) \\
-% 	& & & \\
-% 	Penguji 2&: & \pengujiDua & (\hspace*{3.0cm}) \\
-% \end{tabular}\\
-
-% \vspace*{2.0cm}
-%
-% \begin{tabular}{ll l}
-% 	Ditetapkan di&: & Depok\\
-% 	Tanggal&: & \tanggalLulus \\
-% \end{tabular}
 
 \begin{center}
-\begin{multicols}{2}
+
+\columnratio{0.4} %rasio kolom kiri dan kanan, untuk menyesuaikan jika nama dosen terlalu panjang
+\begin{paracol}{2}
 Penguji I\\[3em]
 \underline{\bo{\pengujiSatu}}\\[-0.6em]
-NIP \nipPengujiSatu
+NIP. \nipPengujiSatu
+
+\switchcolumn
 
 Penguji II\\[3em]
 \underline{\bo{\pengujiDua}}\\[-0.6em]
-NIP \nipPengujiDua
-\end{multicols}
+NIP. \nipPengujiDua
+\end{paracol}
 
+%Pekalongan, ........................\\[-0.6em]
 Pekalongan, \tanggalLulus\\[-0.6em]
 Dekan Fakultas \fakultas\\[3em]
 
-\underline{\bo{(Nama Dekan)}}\\[-0.6em]
-NIP 123456789
+\underline{\bo{Prof. Dr. Nama Dekan}}\\[-0.6em]
+NIP. 1234567890
 \end{center}
 
 
