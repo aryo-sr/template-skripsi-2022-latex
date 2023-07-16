@@ -1,8 +1,76 @@
 %-----------------------------------------------------------------------------%
-\addChapter{Lampiran 1: Judul Lampiran 1}
-\chapter*{Lampiran 1: Judul Lampiran 1}
-%-----------------------------------------------------------------------------%
-%-----------------------------------------------------------------------------%
-\section*{Subbab dari Lampiran 1}
-%-----------------------------------------------------------------------------%
-Isi subbab dari lampiran 1.
+\begin{appendix}
+% \renewcommand\pagenumbering[1]{} % no numbering
+% \renewcommand*{\thepage}{\Roman}
+    \input{etc/markLampiran}
+%     \clearpage
+
+    \pagestyle{lampiran}
+%     \setcounter{page}{2}
+%     \chapter{LAMPIRAN}
+
+    \pagenumbering{Roman}
+%     \pretocmd{\chapter}{%
+%       \clearpage
+%       \pagenumbering{Roman}%
+%       \renewcommand*{\thepage}{\thechapter\arabic{page}}%
+%     }{}{}
+
+  \setlength{\leftskip}{0cm}
+%----------------------------------------------------------------------------%
+
+    \newlampiran{Surat Pengantar Penelitian}
+%     \centerline{
+%         \fbox{ %
+%         \parbox{1.05\linewidth}{%
+%           \includegraphics[width=\linewidth,trim={2cm 10.5cm 1.5cm 0.5cm},clip]{submission/lampiran_pengantar_penelitian.pdf}
+%         %masukkan surat pengantar hasil scan dalam pdf
+%           }
+%         }
+%         }
+    \newpage
+
+    % izin penelitian
+    \phantomsection
+    \newlampiran{Surat Izin Penelitian}
+%     \centerline{
+%         \frame{\includegraphics[width=1.05\linewidth]{submission/lampiran_surat_izin_penelitian.pdf}}
+%         %masukkan surat izin penelitian dari lokasi
+%         }
+    \newpage
+
+
+    % pedoman wawancara
+    \phantomsection
+    \newlampiran{Pedoman Wawancara}
+    \input{src/99-backmatter/interview-guide}
+    \newpage
+
+    % traskrip wawancara
+    \newlampiran{Transkrip Wawancara}
+    \input{src/99-backmatter/transkrip-interview}
+    \newpage
+
+    % dokumentasi
+    \newlampiran{Dokumentasi}
+    %\begin{center}
+     \begin{figure}[H]
+      \centering
+        \includegraphics[width=0.8\textwidth]{assets/pics/makara.png}
+        \caption*{Wawancara dengan \narsumSatu}
+     \end{figure}
+
+     \begin{figure}[H]
+      \centering
+        \includegraphics[width=0.8\textwidth]{assets/pics/creative_commons.png}
+        \caption*{Wawancara dengan \narsumDua}
+     \end{figure}
+    %\end{center}
+    \newpage
+
+
+    % riwayat hidup
+    \newlampiran{Daftar Riwayat Hidup}
+    \input{src/99-backmatter/riwayat_hidup}
+    \clearpage
+\end{appendix}

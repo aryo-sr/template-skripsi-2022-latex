@@ -7,20 +7,28 @@ Apa itu Bab 5?
 %-----------------------------------------------------------------------------%
 \section{Contoh}
 %-----------------------------------------------------------------------------%
-\begin{itemize}
+\begin{enumerate}
 	\item Nomor 1.
 	\item Nomor 2.
-\end{itemize}
+\end{enumerate}
 
 \begin{table}
-	\centering
-	\begin{tabular}{|l|c|c|c|c|}
-		\hline
-		Jumlah   & \f{CPU Time} (s) & CPU \% / \f{core} & Waktu (s) & Memori (MB) \\ \hline
-		1 produk & 101,21           & 35                & 37,86     & 917,35      \\ \hline
-		5 produk & 120,728          & 17,18             & 87,46     & 915,28      \\ \hline
-	\end{tabular}
-	\caption{Contoh tabel}
+    \onehalfspacing
+    \caption{Data informan pada \lokus}
+	\begin{center}
+	\begin{tabularx}{\textwidth}{|c|X|X|}
+    \hline
+    \bo{No.} & \bo{Nama} & \bo{Peran} \\ [0.5ex]
+    \hline
+    1 & \narsumSatu & Pimpinan \lokus~ \\
+    \hline
+    2 & \narsumDua & Anggota pada \lokus~dan anggota masyarakat \\
+    \hline
+    3 & \narsumTiga & Pengawas \lokus~ \\ [1ex]
+    \hline
+    \multicolumn{3}{l}{\footnotesize\textit{Sumber: Catatan penulis}} \\
+    \end{tabularx}
+    \end{center}
 	\label{table:sample}
 \end{table}
 

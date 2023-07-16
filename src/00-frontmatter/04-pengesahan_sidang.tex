@@ -2,53 +2,96 @@
 % Halaman Pengesahan Sidang
 %
 % @author  Andreas Febrian, Andre Tampubolon
-% @version 1.02
+% @author  Slamet B. Aryo
+% @version 1.10
 %
+\BgThispage
+% \thispagestyle{kopkampus}
+% \enlargethispage{3\baselineskip}
+% \vspace*{-10\baselineskip}
+\vspace*{-2\baselineskip}
 
-\chapter*{HALAMAN PENGESAHAN}
+% kop terinspirasi dari
+% https://www.overleaf.com/latex/templates/letterhead/zkvhmkzskgdm
 
-\vspace*{0.4cm}
-\noindent
-
-\noindent
-\begin{tabular}{ll p{9cm}}
-	\type~ini diajukan oleh&: & \\
-	Nama&: & \penulis \\
-	NPM&: & \npm \\
-	Program Studi&: & \program \\
-	Judul \type&: & \judul \\
-\end{tabular} \\
-
-\vspace*{1.0cm}
-
-\noindent \bo{Telah berhasil dipertahankan di hadapan Dewan Penguji
-dan diterima sebagai bagian persyaratan yang diperlukan untuk
-memperoleh gelar \gelar~pada Program Studi \program, Fakultas
-\fakultas, Universitas Indonesia.}\\[0.2cm]
-
+\begin{figure}[!ht]
+%\begin{minipage}{\textwidth}
 \begin{center}
-	\bo{DEWAN PENGUJI}
+\begin{spacing}{.85}
+\begin{tabular}[t]{l c}
+\multirow{5}{*}{\includegraphics[width=0.15\linewidth]{assets/pics/logo-color.ps}} &
+\bo{KEMENTERIAN AGAMA REPUBLIK INDONESIA}  \\
+& \small{\bo{UNIVERSITAS ISLAM NEGERI}} \\
+& \small{\bo{K.H. ABDURRAHMAN WAHID PEKALONGAN}} \\
+& \small{\bo{FAKULTAS \Fakultas}} \\
+& \scriptsize{Jalan Pahlawan No. 52 Rowolaku Kajen, Pekalongan Tlp. (0285) 412575, Fax. (0285) 423418} \\
+& \scriptsize{Website: \websiteFakultas\ Email: \emailFakultas} \\
+\end{tabular}
+
+% gambar garis kop
+\hrule width \hsize \kern 0.5mm \hrule width \hsize height 2pt
+\end{spacing}
+\end{center}
+%\end{minipage}
+\end{figure}
+
+\vspace*{-1cm}
+
+% \chapter*{P E N G E S A H A N}
+\begin{center}
+{\textbf{P E N G E S A H A N}}
 \end{center}
 
-\vspace*{0.3cm}
+\vspace*{0.4cm}
 
-\begin{tabular}{l l l l }
-	& & & \\
-	Pembimbing 1&: & \pembimbingSatu & (\hspace*{3.0cm}) \\
-	& & & \\
-	Pembimbing 2&: & \pembimbingDua & (\hspace*{3.0cm}) \\
-	& & & \\
-	Penguji 1&: & \pengujiSatu & (\hspace*{3.0cm}) \\
-	& & & \\
-	Penguji 2&: & \pengujiDua & (\hspace*{3.0cm}) \\
-\end{tabular}\\
+Dekan Fakultas \fakultas\ Universitas Islam Negeri (UIN) K.H. Abdurrahman Wahid Pekalongan mengesahkan \type\ Saudara/i:\\
 
-\vspace*{2.0cm}
+\noindent
+\begin{tabularx}{\linewidth}{@{}l l @{\hspace{.5em}}X@{}}
+	%\type~ini diajukan oleh&: & \\
+	Nama&: & \bo{\penulis} \\
+	NIM&: & \bo{\nim} \\
+	%Jurusan&: & \program \\
+	Judul \Type&: & \bo{\judul} \\
+        Dosen Pembimbing&: & \bo{\pembimbingSatu} \\
+\end{tabularx} \\
 
-\begin{tabular}{ll l}
-	Ditetapkan di&: & Depok\\
-	Tanggal&: & \tanggalLulus \\
-\end{tabular}
+\vspace*{0.5em}
+
+%Telah diujikan pada hari ............. tanggal .......................... dan dinyatakan
+Telah diujikan pada hari \hariLulus~tanggal \tanggalLulus~dan dinyatakan
+\bo{\underline{LULUS}} serta diterima sebagai salah satu syarat guna
+memperoleh gelar \gelar.%\\[0.2cm]
+
+\begin{center}
+	Dewan Penguji,
+\end{center}
+
+\vspace*{-1cm}
+
+
+\begin{center}
+
+\columnratio{0.4} %rasio kolom kiri dan kanan, untuk menyesuaikan jika nama dosen terlalu panjang
+\begin{paracol}{2}
+Penguji I\\[3em]
+\underline{\bo{\pengujiSatu}}\\[-0.6em]
+NIP. \nipPengujiSatu
+
+\switchcolumn
+
+Penguji II\\[3em]
+\underline{\bo{\pengujiDua}}\\[-0.6em]
+NIP. \nipPengujiDua
+\end{paracol}
+
+%Pekalongan, ........................\\[-0.6em]
+Pekalongan, \tanggalLulus\\[-0.6em]
+Dekan Fakultas \fakultas\\[3em]
+
+\underline{\bo{Prof. Dr. Nama Dekan}}\\[-0.6em]
+NIP. 1234567890
+\end{center}
 
 
 \newpage

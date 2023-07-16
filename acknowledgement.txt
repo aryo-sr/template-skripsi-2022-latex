@@ -3,10 +3,11 @@ Ketentuan mengenai lisensi hanya berlaku untuk template.
 Dokumen yang dibuat dengan menggunakan template tersebut sepenuhnya menjadi
 milik penulis dan dapat didistribusikan sesuai dengan keperluan masing-masing.
 Setiap template baru yang dibuat dari template ini harus mengikuti aturan
-yang tertera dalam template_license.txt.
+yang tertera dalam file LICENSE.
 
+Penulis Template: Slamet Aryo
 
-Penulis Template: Ichlasul Affan
+Penulis Template Awal (UI): Ichlasul Affan
 
 Kontributor:
  - Azhar Kurnia

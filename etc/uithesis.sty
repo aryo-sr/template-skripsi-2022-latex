@@ -18,6 +18,12 @@
 % - Laporan Thesis yang dibuat Andreas Febrian
 %
 
+% -----------
+% Konfigurasi ini dirombak untuk menyesuaikan aturan teknis skripsi 
+% UIN K.H. Abdurrahman Wahid Pekalongan tahun 2023
+% 
+% Dimodifikasi oleh:
+% - Slamet B. Aryo (2022-2023)
 
 %-----------------------------------------------------------------------------%
 % Package
@@ -30,11 +36,8 @@
 % to work with the four standard book, report, article and proc classes, and to
 % a limited extent with the ltxdoc class.
 %
-\usepackage{tocbibind}
 
-%\usepackage{enumitem}
-%\usepackage{booktabs}% http://ctan.org/pkg/booktabs
-%\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{titlesec} % loaded before hyperref https://tex.stackexchange.com/a/529972/151821
 
 %
 % From [Wikipedia]:
@@ -47,8 +50,9 @@
 %	- \href{mailto:my_address@wikibooks.org}{
 %		\nolinkurl{my_address@wikibooks.org}}
 %
-\usepackage{hyperref}
-  \hypersetup{
+% \usepackage{hyperxmp} %conflict with pdfa incompatible
+\usepackage[pdfa,unicode]{hyperref}
+\hypersetup{
   	colorlinks=false,
   	pdfborder=0 0 0,
   	linkcolor=blue,
@@ -56,8 +60,21 @@
   	bookmarksopen=false,
   	bookmarksnumbered=true,
   	pdfstartview=FitH,
-  	pdfview=FitH
-	}
+  	pdfview=FitH,
+% 	pdfapart=2,
+% 	pdfaconformance=b,
+	pdftitle={\judul},
+	pdfauthor={\penulis},
+	pdflang={id-ID},
+	pdfkeywords={wakaf tunai, baitul maal bahtera, cash waqf},
+	pdfsubject={\subjekpen},
+% 	pdfpublisher={UIN Gus Dur},
+% 	pdfpubstatus={AO}
+}
+% pdf/a2b
+\usepackage{colorprofiles}
+\usepackage[a-2b,pdf17]{pdfx}
+% \usepackage[xetex]{xcolor}
 
 %
 % The url package allows spacing and line breaks that result in intelligent
@@ -82,6 +99,11 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
+
 %
 % Digunakan untuk mengantur line spacing pada laporan. Umumnya spacing yang
 % digunakan adalah 1.5.
@@ -98,12 +120,13 @@
 % document. The package must be called in the preamble of the document and
 % specified when called.
 %
-\usepackage[paper=a4paper,headheight=0pt,left=3cm,top=3cm,right=3cm,bottom=3cm]{geometry}
+\usepackage[a4paper,head=16pt,headsep=1cm,left=4cm,top=4cm,right=3cm,bottom=3cm,footskip=1cm]{geometry}
 
 %
 % Digunakan untuk mengatur caption dalam dokumen.
 %
-\usepackage[font=footnotesize,format=plain,labelfont=bf,up,textfont=up]{caption}
+\usepackage[font=normalsize,format=plain,up,textfont=up]{caption}
+\captionsetup[table]{position=above, skip=0pt}
 
 %
 % Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak
@@ -134,6 +157,12 @@
 \usepackage{fancyhdr}
 
 %
+% Menampilkan garis tepi untuk mengukur margin
+%
+% \usepackage{showframe} % show margins
+% \renewcommand*\ShowFrameColor{\color{red}}
+
+%
 % Package untuk memasukan berkas pdf sebagai bagian dari dokumen.
 %
 \usepackage{pdfpages}
@@ -141,32 +170,6 @@
 %
 % Membantu dalam mengatur jarak antara tepi kertas dengan posisi header.
 %
-\usepackage[Conny]{fncychap}
-
-%
-% Ubah style Conny
-%
-\ChNameVar{\centering\large\rm\bfseries}
-\ChNumVar{\large\bfseries}
-\ChTitleVar{\centering\large\rm\bfseries}
-\ChRuleWidth{0pt}
-
-\renewcommand{\DOCH}{%
-	%\vskip -0.5\baselineskip
-	\CNV\FmN{\@chapapp}\space \CNoV\thechapter
-	\par\nobreak
-	%\vskip -0.5\baselineskip
-}
-\renewcommand{\DOTI}[1]{%
-	%\mghrulefill{\RW}\par\nobreak
-	\CTV\FmTi{#1}\par\nobreak
-	\vskip 20\p@
-}
-\renewcommand{\DOTIS}[1]{%
-	%\mghrulefill{\RW}\par\nobreak
-	\CTV\FmTi{#1}\par\nobreak
-	\vskip 10\p@
-}
 
 %
 % Digunakan untuk membuat tabel berwarna-warni.
@@ -219,38 +222,71 @@
 % \strictpagecheck
 % \usepackage{everyshi}
 
-% Bibliography
-\usepackage{natbib}
-
 % Slanted fraction symbol
 \usepackage{nicefrac}
 
 % table of content matter
 \usepackage[titles]{tocloft}
 \renewcommand*{\cftdotsep}{2}
-\renewcommand*{\cftsecdotsep}{2}  % use dots in the section entries
+% \renewcommand*{\cftsecdotsep}{2}  % use dots in the section entries
 %\renewcommand*{\cftsubsecdotsep}{3}
 \let\oldcftchappresnum\cftchappresnum
-\renewcommand*{\cftchappresnum}{BAB \oldcftchappresnum}
+\renewcommand*{\cftchappresnum}{BAB\hspace*{0.7em}\oldcftchappresnum}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}}
-%\renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}}
-%\renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
-%\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
-%\setlength{\cftchapnumwidth}{4em}
-%\setlength{\cftsubsubsecindent}{6em}
-%\setlength{\cftparaindent}{8em}
-\renewcommand*{\cftchapnumwidth}{4em}
-\renewcommand*{\cftsecnumwidth}{2.4em} % increase space for Roman numerals
-\renewcommand*{\cftsubsubsecindent}{5.8em} % reduce indent of subsubsection titles
-\renewcommand*{\cftsubsecnumwidth}{2em}
-\renewcommand*{\cftsubsubsecnumwidth}{2em}
-\renewcommand*{\cftparaindent}{7.8em}
-\renewcommand*{\cftparanumwidth}{2em}
+\renewcommand{\cftsecpresnum}{} % Suppress the section prefix in TOC
+\renewcommand*{\cftchapnumwidth}{4.5em}
+\renewcommand*{\cftsecindent}{4.5em}
+\renewcommand*{\cftsecnumwidth}{1.5em} % increase space for Roman numerals
+\renewcommand*{\cftsubsecindent}{6em}
+\renewcommand*{\cftsubsecnumwidth}{1.5em}
+\renewcommand*{\cftsubsubsecindent}{7.5em} % reduce indent of subsubsection titles
+\renewcommand*{\cftsubsubsecnumwidth}{1.5em}
+\renewcommand*{\cftparaindent}{9em}
+\renewcommand*{\cftparanumwidth}{1.5em}
+
+% spacing
+\renewcommand\cftchapafterpnum{\vskip-10pt}
+% \renewcommand\cftsecafterpnum{\\ \vspace{-20pt}}
+\renewcommand\cftsecafterpnum{\vskip-10pt}
+\renewcommand\cftsubsecafterpnum{\vskip-10pt}
+\renewcommand\cftsubsubsecafterpnum{\vskip-10pt}
+\renewcommand\cftparaafterpnum{\vskip-10pt}
+% \setlength{\cftbeforechapskip}{5pt}
+\setlength\cftbeforechapskip{5pt}
+\renewcommand\cftfigafterpnum{\vskip8pt\par}
+\renewcommand\cfttabafterpnum{\vskip8pt\par}
+\makeatletter
+\renewcommand{\@pnumwidth}{2.5em}
+\makeatother
+
+% Jarak baris pertama paragraph yang menjorok
+\usepackage{indentfirst}
+\setlength\parindent{1cm}
+
+% Lampiran listing
+\newcommand{\listlampiran}{Daftar Lampiran}
+\newlistof[Asection]{lampiran}{lam}{\listlampiran}
+\newcommand{\lampiran}[1]{
+% \addcontentsline{lam}{lampiran}{#1}
+	\refstepcounter{lampiran}%
+% %   \bigskip% Optional
+%   \par\noindent
+%   \textbf{Lampiran~\thelampiran. #1}%
+	\addcontentsline{lam}{lampiran}{\protect\numberline{\thelampiran}#1}
+% 	\par
+	}
+\newcommand{\newlampiran}[1]{\Asection{#1}\lampiran{#1}}
+\makeatletter
+\renewcommand*{\thelampiran}{\arabic{lampiran}}
+% \@addtoreset{lampiran}{section}
+\makeatother
+\renewcommand{\cftlampiranpresnum}{Lampiran~}
+\setlength{\cftlampirannumwidth}{1in}
 
 % Code listing
 \newlistof{listing}{lol}{Daftar Kode}
 \usepackage[newfloat]{minted}
-\usepackage{caption}
+
 \SetupFloatingEnvironment{listing}{name=\bo{Kode}}
 \setminted{
 	style=pastie,
@@ -290,10 +326,26 @@
 \renewcommand{\cfttabpresnum}{\tablename~}
 \setlength{\cfttabnumwidth}{1in}
 
+
+\usepackage{changepage}
+% tanda tangan menjorok ke kanan
+\newenvironment{ttdkanan}{\begin{adjustwidth}{8cm}{}}{\end{adjustwidth}}
+
+
 % use tabularx
 \usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{ltxtable}
+\usepackage{paracol}
+
 % dummy
 \usepackage{enumitem}
+\usepackage{lipsum}
+% rotate page
+\usepackage{rotating}
+
 
 %-----------------------------------------------------------------------------%
 % Konfigurasi
@@ -340,24 +392,38 @@
 %
 %\renewcommand{\headrulewidth}{0.0pt}
 \fancyhf{}
-%\fancypagestyle{standard}{
+\fancypagestyle{standard}{
 	\fancyhead[L]{}
 	\fancyhead[C]{}
 	\fancyhead[R]{\thepage}
 	%\fancyfoot[L]{}
-	%\fancyfoot[C]{}
+	\fancyfoot[C]{}
 	\renewcommand{\headrulewidth}{0.0pt}
-	%\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
+	%\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{UIN GUSDUR}}
 	\renewcommand{\footrulewidth}{0.0pt}
-%}
+	\setlength{\headheight}{16pt}
+}
 
-% \fancypagestyle{first-pages}{
-% 	\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{Universitas Indonesia}}
-% 	\fancyfoot[C]{\thepage}
-% }
+\fancypagestyle{first-pages}{
+% 	\fancyfoot[R]{\footnotesize \fontfamily{phv} \selectfont \bo{UIN GUSDUR}}
+	\fancyhead[R]{}
+	\fancyfoot[C]{\thepage}
+}
 
-\pagestyle{fancy}
+\fancypagestyle{lampiran}{%
+    \fancyhf{}
 
+    \fancyhead[L]{}
+    \fancyhead[C]{}
+    \fancyhead[R]{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    % \setlength{\headheight}{-4em}
+    \fancyfoot[C]{\thepage}
+}
+
+%\pagestyle{standard}
+%\fancyhf{}
 %
 % Add new chapter page count
 %
@@ -418,13 +484,7 @@
 %
 % Tambahkan berkas PDF ke dalam laporan.
 \newcommand{\putpdf}[1]{\includepdf[pages=-]{#1.pdf}}
-%
-% Perintah untuk membuat perintah/variabel baru.
-\newcommand{\var}[2]{\newcommand{#1}{#2}}
-%
-% Perintah untuk membuat perintah/variabel baru. Teks yang ditulis dalam
-% perintah ini akan diformat ulang menggunakan huruf kapital.
-\newcommand{\Var}[2]{\newcommand{#1}{\uppercase{#2}}}
+
 %
 % Tambahkan kata-kata yang dimasukan kedalam Table of Contents.
 \newcommand{\addChapter}[1]{\phantomsection \addcontentsline{toc}{chapter}{#1}}
@@ -497,16 +557,423 @@
 % 	\footnotesize\textbf{Sumber:} #2\par
 % }
 
-\usepackage{changepage}
-% tanda tangan menjorok ke kanan
-\newenvironment{ttdkanan}{\begin{adjustwidth}{8cm}{}}{\end{adjustwidth}}
+% kop surat pengesahan
+%\usepackage{eso-pic}
+% watermark
+\usepackage[pages=some]{background}
+\backgroundsetup{scale=1.2, angle=0, opacity=1, contents={\includegraphics[scale=1]{assets/pics/logo-color-opaque.png}}}
+
+% \newcommand{\placetextbox}[3]{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+%   \setbox0=\hbox{#3}% Put <stuff> in a box
+%   \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+%     \put(\LenToUnit{#1\paperwidth},\LenToUnit{#2\paperheight}){\vtop{{\null}\makebox[0pt][c]{#3}}}%
+%   }%
+% }%
+
+%-------------------------------------------------------
+% support multiple languages: arabic, english, indonesia
+%-------------------------------------------------------
+
+\usepackage[uthmani,wordwise]{quran}
+% \usepackage{fancyvrb}
+\usepackage{polyglossia}
+% \usepackage{arabxetex}
+
+%\setdefaultlanguage{english}
+% \setdefaultlanguage{arabic}
+\setdefaultlanguage[variant=indonesian]{malay}
+\setotherlanguage{malay}
+\setotherlanguage{arabic}
+\setotherlanguage{english}
+\newfontfamily\arabicfont[Path=./assets/fonts/]{SakkalMajallaRegular.ttf}[ % atau Traditional Arabic
+  Script=Arabic,
+  Scale=MatchUppercase,
+  Extension=.ttf,
+  %OpticalSize=16,
+  %AutoFakeSlant=-0.03, % Are you sure?
+  %Renderer=HarfBuzz % LuaTex only, not applicable for XeLaTeX
+]
+
+\AtBeginDocument{\normalfont}
+
+\usepackage{fontspec}
+%\usepackage[LAE,LFE]{fontenc}
+%\usepackage[OT1]{fontenc}
+% \usepackage[T1]{fontenc}
+
+%%
+% Ganti chapter dengan titlesec
+%
+% \usepackage{titlesec} % loaded above
+
+% \newfontfamily\chapterfont{Times New Roman}
+% Set chapter title format
+\titleformat{\chapter}[display]
+  {\vspace{-28pt}\centering\normalfont\normalsize\bfseries} % Font and alignment
+  {\MakeUppercase{\chaptertitlename} \thechapter} % Label
+  {-10pt} % Before spacing
+  {\MakeUppercase} % After spacing
+
+\titlespacing*{\chapter} {0pt}{0pt}{12pt}
+
+%%% custom section lampiran appendix
+\titleclass{\Asection}{straight}[\chapter]
+% \titleclass{\Asection}{straight}[\section]
+\newcounter{Asection}
+
+\titleformat{\Asection}
+  {\vspace{-6pt}\normalfont\normalsize\bfseries}{Lampiran \theAsection}{0.5em}{}
+\titlespacing*{\Asection}
+  {0pt}{0pt}{6pt}
+  %{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+\renewcommand\theAsection{\arabic{Asection}\thesection}
+\newcommand{\Asectionautorefname}{New section}
+% Adjust line spacing between sections in the TOC
+% \setlength{\cftbeforesecskip}{0.5em} % Default line spacing between sections
+\newlength{\cftbeforeAsecskip}
+\setlength{\cftbeforeAsecskip}{1em} % Adjust the value as needed for 'asection' entries
+\newcommand{\cftAsecafterpnum}{}
+
+\makeatletter
+  \def\toclevel@Asection{2}
+  \def\l@Asection{\@dottedtocline{2}{4.5em}{1.5em}}
+  \renewcommand{\@dotsep}{2}
+
+\renewcommand*{\l@Asection}[2]{%
+\ifnum \c@tocdepth >\z@
+\if@cfthaschapter
+\vskip \cftbeforesecskip
+\else
+\addpenalty\@secpenalty
+\addvspace{\cftbeforesecskip}
+\fi
+{\leftskip \cftsecindent\relax
+\rightskip \@tocrmarg
+\parfillskip -\rightskip
+\parindent \cftsecindent\relax\@afterindenttrue
+\interlinepenalty\@M
+\leavevmode
+\@tempdima \cftsecnumwidth\relax
+\let\@cftbsnum \cftsecpresnum
+\let\@cftasnum \cftsecaftersnum
+\let\@cftasnumb \cftsecaftersnumb
+\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+{\cftsecfont #1}\nobreak
+\cftsecfillnum{#2}}%
+\fi}
+
+\makeatother
+
+% tabbing riwayat hidup
+\newcommand\tabbox[2][3.5cm]{\makebox[#1][l]{#2}}
+
+% \usepackage{bidi} % used also by polyglossia must be defined after titlesec
+\setmainfont{Times New Roman}
+
+% Menambah titik di atas huruf untuk transliterasi Arab
+\newcommand{\ardot}[1]{\ensuremath{\dot{\text{\normalfont#1}}}}
+
+\usepackage{hyphenat}
+%\usepackage{showhyphens}
 
 % penomoran bab
-\renewcommand\thechapter{\Roman{chapter}}
-\renewcommand\thesection{\Alph{section}.}
-\renewcommand\thesubsection{\arabic{subsection}.}
-\renewcommand\thesubsubsection{\alph{subsubsection}.}
-\renewcommand\theparagraph{\roman{paragraph}.}
+\renewcommand{\thechapter}{\Roman{chapter}}
+%\renewcommand\thesection{\Alph{section}.} %pdflatex
+\renewcommand{\thesection}{\latinAlph{section}.}
+\renewcommand{\thesubsection}{\arabic{subsection}.}
+\renewcommand{\thesubsubsection}{\alph{subsubsection}.}
+\renewcommand{\theparagraph}{\roman{paragraph}.}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+
+%-----------------------------------
+
+% Bibliography
+% \RequirePackage[natbibapa,tocbib]{apacite}
+\usepackage[style=apa,labelnumber,backend=biber,defernumbers=true]{biblatex} %pdflatex
+
+\newrobustcmd*{\citefirstlastauthor}{%
+    \AtNextCite{\DeclareNameAlias{labelname}{given-family}}%
+    \citeauthor%
+}
+
+\usepackage{xpatch}
+% APA style 6 for book includes publisher's city
+\newcommand*{\locpubdelim}{\addcolon\space}
+\newcommand*{\publocdelim}{\addcomma\space}
+\xpatchbibdriver{book}
+  {\printlist{publisher}}
+  %{\usebibmacro{location+publisher}}
+  {\setunit*{\publocdelim}%
+  \printlist{location}%
+  \setunit{\addcolon\space}%
+  \printlist{publisher}}
+  {}{}
+\xpatchbibdriver{inbook}
+  {\printlist{publisher}}
+  %{\usebibmacro{location+publisher}}
+  {\setunit*{\publocdelim}%
+  \printlist{location}%
+  \setunit{\addcolon\space}%
+  \printlist{publisher}}
+  {}{}
+
+% \xpatchbibdriver{online}
+% {\printfield{note}\newunit\newblock}
+% {\printfield{note}\newunit\newblock%
+%   \newunit\newblock
+%   \usebibmacro{publisher+location+date}%
+% }{}{}
+
+% \appto{\bibsetup}{\raggedright}
+\addbibresource[datatype=bibtex]{src/references.bib}
+
+\DeclareLanguageMapping{bahasa}{etc/bahasa-apa}
+\DeclareLanguageMapping{indonesian}{etc/bahasa-apa}
+\DeclareLanguageMapping{malay}{etc/bahasa-apa}
+% \DeclareLanguageMapping{bahasa}{english}
+% \DeclareLanguageMapping{english}{english}
+\DeclareLanguageMapping{arabic}{english}
+
+%-----------------------------------------------
+% include ttd
+\usepackage{pdfpages}
+% \usepackage{ifluatex}
+
+% halaman landscape
+\usepackage{pdflscape}
+
+
+\def\fillandplacepagenumber{%
+ \par\pagestyle{empty}%
+ \vbox to 0pt{\vss}\vfill
+ \vbox to 0pt{\baselineskip0pt
+   \hbox to\linewidth{\hss}%
+   \baselineskip\footskip
+   \hbox to\linewidth{%
+     \hfil\thepage\hfil}\vss}}
+
+% teks sub section menjorok ke dalam
+%\usepackage{parskip} % penyebab jarak paragraf semakin lebar
+\makeatletter
+
+\def\sectionindent{8mm}
+\def\subsectionindent{8mm}
+\def\subsubsectionindent{8mm}
+\def\itemizelabelwidth{6mm}
+
+\def\subsectiontotalindent{16mm}
+% = \sectionindent + \subsectionindent + \subsubsectionindent
+
+\def\subsubsectiontotalindent{24mm}
+% = \sectionindent + \subsectionindent + \subsubsectionindent + \itemizelabelwidth
+
+\setlength\parindent{\subsectionindent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The following code is adapted from some sample code by
+% Vincent Zoonekynd, made available at the following website:
+% http://zoonek.free.fr/LaTeX/LaTeX_samples_section/0.html
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Redefining \section and \section*
+
+\def\section{\@ifstar\unnumberedsection\numberedsection}
+\def\numberedsection{\@ifnextchar[%]
+  \numberedsectionwithtwoarguments\numberedsectionwithoneargument}
+\def\unnumberedsection{\@ifnextchar[%]
+  \unnumberedsectionwithtwoarguments\unnumberedsectionwithoneargument}
+\def\numberedsectionwithoneargument#1{\numberedsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsectionwithoneargument#1{\unnumberedsectionwithtwoarguments[#1]{#1}}
+\def\numberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  %\vskip 3ex\goodbreak
+  \vskip 1ex\goodbreak
+  \refstepcounter{section}%
+  \noindent
+  \begingroup
+  %\leavevmode\large\bfseries\raggedright % large ukuran 14pt
+  \leavevmode\normalsize\bfseries\raggedright
+  \rlap{\thesection}%
+  \hspace{\subsectionindent}%
+  #2
+  \par
+  \endgroup
+  %\vskip 1ex\nobreak
+  \addcontentsline{toc}{section}{%
+    \protect\numberline{\thesection}%
+    #1}%
+  \leftskip=\sectionindent\relax%
+  }
+
+\def\unnumberedsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  \vskip 3ex\goodbreak
+%  \refstepcounter{section}%
+  \noindent
+  \begingroup
+  \leavevmode\normalsize\bfseries\raggedright
+  %\rlap{\thesection}%
+  \hspace{\sectionindent}%
+  #2
+  \par
+  \endgroup
+  \vskip 1ex\nobreak
+  % \addcontentsline{toc}{section}{%
+%    \protect\numberline{\thesection}%
+    % #1}%
+  %\leftskip=0pt\relax%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Redefining \subsection and \subsection*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\subsection{\@ifstar\unnumberedsubsection\numberedsubsection}
+\def\numberedsubsection{\@ifnextchar[%]
+  \numberedsubsectionwithtwoarguments\numberedsubsectionwithoneargument}
+\def\unnumberedsubsection{\@ifnextchar[%]
+  \unnumberedsubsectionwithtwoarguments\unnumberedsubsectionwithoneargument}
+\def\numberedsubsectionwithoneargument#1{\numberedsubsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsubsectionwithoneargument#1{\unnumberedsubsectionwithtwoarguments[#1]{#1}}
+\def\numberedsubsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  %\vskip 2ex\goodbreak
+  \refstepcounter{subsection}%
+  \noindent
+  \begingroup
+  \leavevmode\normalsize\raggedright
+  \hspace{\sectionindent}%
+  \rlap{\thesubsection}%
+  \hspace{\subsectionindent}%
+  #2
+  \par
+  \endgroup
+  %\vskip 1ex\nobreak
+  \addcontentsline{toc}{subsection}{%
+    \protect\numberline{\thesubsection}%
+    #1}%
+  % \begingroup
+  % \setlength\parindent{\subsectionindent}
+  \leftskip=\subsectiontotalindent\relax%
+  % \endgroup
+  }
+\def\unnumberedsubsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  %\vskip 2ex\goodbreak
+%  \refstepcounter{subsection}%
+  \noindent
+  \begingroup
+  \leavevmode\normalsize\raggedright
+  \hspace{\sectionindent}%
+  %\rlap{\thesubsection}%
+  \hspace{\subsectionindent}%
+  #2
+  \par
+  \endgroup
+  %\vskip 1ex\nobreak
+  % \addcontentsline{toc}{subsection}{%
+%    \protect\numberline{\thesubsection}%
+    % #1}%
+  \leftskip=\subsectiontotalindent\relax%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Redefining \subsubsection and \subsubsection*
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\subsubsection{\@ifstar\unnumberedsubsubsection\numberedsubsubsection}
+\def\numberedsubsubsection{\@ifnextchar[%]
+  \numberedsubsubsectionwithtwoarguments\numberedsubsubsectionwithoneargument}
+\def\unnumberedsubsubsection{\@ifnextchar[%]
+  \unnumberedsubsubsectionwithtwoarguments\unnumberedsubsubsectionwithoneargument}
+\def\numberedsubsubsectionwithoneargument#1{\numberedsubsubsectionwithtwoarguments[#1]{#1}}
+\def\unnumberedsubsubsectionwithoneargument#1{\unnumberedsubsubsectionwithtwoarguments[#1]{#1}}
+\def\numberedsubsubsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  %\vskip 3ex\goodbreak
+  \refstepcounter{subsubsection}%
+  \noindent
+  \begingroup
+  \leavevmode\normalsize\raggedright %not bold
+  \hspace{\subsectiontotalindent}%
+  \rlap{\thesubsubsection}%
+  \hspace{\subsubsectionindent}%
+  #2
+  \par
+  \endgroup
+  %\vskip 1ex\nobreak
+  \addcontentsline{toc}{subsubsection}{%
+    \protect\numberline{\thesubsubsection}%
+    #1}%
+  \leftskip=\subsubsectiontotalindent\relax%
+  }
+\def\unnumberedsubsubsectionwithtwoarguments[#1]#2{%
+  \ifhmode\par\fi
+  \removelastskip
+  %\vskip 3ex\goodbreak
+%  \refstepcounter{subsubsection}%
+  \noindent
+  \begingroup
+  \leavevmode\normalsize\raggedright %not bold
+  \hspace{\subsectiontotalindent}%
+  %\rlap{\thesubsubsection}%
+  \hspace{\subsubsectionindent}%
+  #2
+  \par
+  \endgroup
+  %\vskip 1ex\nobreak
+  % \addcontentsline{toc}{subsubsection}{%
+%    \protect\numberline{\thesubsubsection}%
+    % #1}%
+  \leftskip=\subsubsectiontotalindent\relax%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% indent \paragraph first paragraph
+%%%%%%%%%%%%%%%%%%%%%%%
+% \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+%   {-3.25ex\@plus -1ex \@minus -.2ex}%
+%   {1.5ex \@plus .2ex}%
+%   {\normalfont\normalsize\bfseries\@afterindentfalse\@afterheading}}
+
+% needs titlesec
+%\titlespacing{\paragraph}{\parindent}{*1.5}{\subsubsectionindent}
+
+%\let\paragraph\ignorespaces
+\makeatother
+
+%% format kutipan wawancara
+\newenvironment{kutipan}
+{\singlespacing\par\setlength{\leftskip}{\parindent+1.6cm}\relax\rightskip1cm\relax\noindent}
+{\par\leftskip0cm\relax\rightskip0cm\relax}
+
+%\usepackage{enumitem}
+% \setlist[itemize]{leftmargin=\leftskip,itemindent=\subsectionindent}
+% \setlist[enumerate]{leftmargin=\leftskip,itemindent=\subsectionindent}
+\setlist[itemize]{leftmargin=\leftskip+\subsectionindent,labelwidth=\itemizelabelwidth,align=left,nosep}
+\setlist[enumerate]{leftmargin=\leftskip+\subsectionindent,labelwidth=\itemizelabelwidth,align=left,nosep,listparindent=\parindent}
+%\setlength{\leftmargini}{\leftskip}
+
+% titik-titik di bawah
+\usepackage[normalem]{ulem}
+\usepackage[dot]{dashundergaps}
+
+% warna kuning
+\definecolor{ChecklistHead}{rgb}{0.87,0.85,0.76}
+
+\setlist[description]{leftmargin=\parindent,labelindent=\parindent}
+
+%% jangan masukkan indirect reference ke daftar pustaka, dipisahkan koma
+\DeclareBibliographyCategory{secondary}
+\addtocategory{secondary}{Muhammad1997risalah} % contoh referensi yang dikecualikan dalam daftar pustaka
+%--------------------------------------------------------------
 
 %-----------------------------------------------------------------------------%
 % Ubah Istilah Penulisan
