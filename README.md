@@ -13,10 +13,14 @@ Cukup unduh file ZIP repository Github ini untuk diunggah saat membuat project b
 (Tombol `Code` -> pilih `Download Zip`; kemudian pada Overleaf klik tombol
 `New Project` -> `Upload Project` -> `Select a .zip file`)
 
+Kemudian perlu menyesuaikan pada Menu -> Settings dan memilih *compiler* menjadi **XeLaTeX**.
+
 ### *Offline*
 
 Pada saat instalasi distribusi [Texlive](https://tug.org/texlive/) menyesuaikan sistem operasi yang dipakai,
-pastikan *packages* berikut juga di-*install*.
+pastikan *packages* di bawah ini juga di-*install*.
+
+*Compiler* dokumen menggunakan `xelatex` dan *backend* `biblatex` dengan `biber`.
 
 *Packages yang diperlukan:*
 
