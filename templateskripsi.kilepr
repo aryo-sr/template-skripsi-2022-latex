@@ -50,9 +50,9 @@ mode=LaTeX
 
 [item:src/00-frontmatter/02-keaslian.tex]
 archive=true
-encoding=
-highlight=
-mode=
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
 
 [item:src/00-frontmatter/03-nota_pembimbing.tex]
 archive=true
@@ -74,27 +74,39 @@ mode=LaTeX
 
 [item:src/00-frontmatter/06-persembahan.tex]
 archive=true
-encoding=
-highlight=
-mode=
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
 
 [item:src/00-frontmatter/07-abstract.tex]
 archive=true
-encoding=
-highlight=
-mode=
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
 
 [item:src/00-frontmatter/08-pengantar.tex]
 archive=true
-encoding=
-highlight=
-mode=
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
 
 [item:src/00-frontmatter/09-transliterasi.tex]
 archive=true
-encoding=
-highlight=
-mode=
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/01-body/01-bab1.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/01-body/02-bab2.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
 
 [item:src/01-body/03-bab3.tex]
 archive=true
@@ -102,7 +114,49 @@ encoding=UTF-8
 highlight=LaTeX
 mode=LaTeX
 
+[item:src/01-body/04-bab4.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/01-body/05-bab5.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/01-body/06-kesimpulan.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/99-backmatter/interview-guide.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/99-backmatter/lampiran.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
 [item:src/99-backmatter/pustaka.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/99-backmatter/riwayat_hidup.tex]
+archive=true
+encoding=UTF-8
+highlight=LaTeX
+mode=LaTeX
+
+[item:src/99-backmatter/transkrip-interview.tex]
 archive=true
 encoding=UTF-8
 highlight=LaTeX

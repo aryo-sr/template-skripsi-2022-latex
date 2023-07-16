@@ -18,6 +18,12 @@
 % - Laporan Thesis yang dibuat Andreas Febrian
 %
 
+% -----------
+% Konfigurasi ini dirombak untuk menyesuaikan aturan teknis skripsi 
+% UIN K.H. Abdurrahman Wahid Pekalongan tahun 2023
+% 
+% Dimodifikasi oleh:
+% - Slamet B. Aryo (2022-2023)
 
 %-----------------------------------------------------------------------------%
 % Package
@@ -30,11 +36,7 @@
 % to work with the four standard book, report, article and proc classes, and to
 % a limited extent with the ltxdoc class.
 %
-%\usepackage{tocbibind}
 
-%\usepackage{enumitem}
-%\usepackage{booktabs}% http://ctan.org/pkg/booktabs
-%\newcommand{\tabitem}{~~\llap{\textbullet}~~}
 \usepackage{titlesec} % loaded before hyperref https://tex.stackexchange.com/a/529972/151821
 
 %
@@ -220,9 +222,6 @@
 % \strictpagecheck
 % \usepackage{everyshi}
 
-% Bibliography
-%\RequirePackage[natbibapa,tocbib]{apacite}
-
 % Slanted fraction symbol
 \usepackage{nicefrac}
 
@@ -235,16 +234,6 @@
 \renewcommand*{\cftchappresnum}{BAB\hspace*{0.7em}\oldcftchappresnum}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}}
 \renewcommand{\cftsecpresnum}{} % Suppress the section prefix in TOC
-%\renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}}
-%\renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
-%\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftsubsecdotsep}}
-%\setlength{\cftchapnumwidth}{4em}
-%\setlength{\cftsubsubsecindent}{6em}
-%\setlength{\cftparaindent}{8em}
-% \renewcommand{\cfttoctitlefont}{\hfill\normalsize\bfseries\sffamily}
-% \renewcommand*{\cftchapfont}{\normalsize\bfseries\sffamily}
-% \renewcommand\cftchapfont{\scshape}
-% \renewcommand*{\cftchappagefont}{\normalsize\bfseries\sffamily}
 \renewcommand*{\cftchapnumwidth}{4.5em}
 \renewcommand*{\cftsecindent}{4.5em}
 \renewcommand*{\cftsecnumwidth}{1.5em} % increase space for Roman numerals
@@ -254,6 +243,7 @@
 \renewcommand*{\cftsubsubsecnumwidth}{1.5em}
 \renewcommand*{\cftparaindent}{9em}
 \renewcommand*{\cftparanumwidth}{1.5em}
+
 % spacing
 \renewcommand\cftchapafterpnum{\vskip-10pt}
 % \renewcommand\cftsecafterpnum{\\ \vspace{-20pt}}
@@ -272,14 +262,6 @@
 % Jarak baris pertama paragraph yang menjorok
 \usepackage{indentfirst}
 \setlength\parindent{1cm}
-
-% \usepackage{titlesec}
-% \titlespacing*{\paragraph}{0pt}{0pt}{1cm}
-% \titleformat{\chapter}[display]
-%   {\chapterfont\huge\centering} % Font and alignment
-%   {} % Label
-%   {0pt} % Before spacing
-%   {\vspace{-2cm}} % After spacing
 
 % Lampiran listing
 \newcommand{\listlampiran}{Daftar Lampiran}
@@ -304,7 +286,7 @@
 % Code listing
 \newlistof{listing}{lol}{Daftar Kode}
 \usepackage[newfloat]{minted}
-\usepackage{caption}
+
 \SetupFloatingEnvironment{listing}{name=\bo{Kode}}
 \setminted{
 	style=pastie,
@@ -355,6 +337,8 @@
 \usepackage{booktabs}
 \usepackage{adjustbox}
 \usepackage{longtable}
+\usepackage{ltxtable}
+\usepackage{paracol}
 
 % dummy
 \usepackage{enumitem}
@@ -428,38 +412,6 @@
 
 \fancypagestyle{lampiran}{%
     \fancyhf{}
- %    \fancyhead[C]{
- %    \begin{figure}
-	% \begin{minipage}{\textwidth}
-	% \begin{center}
-	% \begin{spacing}{.85}
-	% \begin{tabular}[b]{l c}
-	% \multirow{5}{*}{
-	% 	\includegraphics[width=0.15\linewidth]{assets/pics/logo-color.png}
-	% } & \bo{KEMENTERIAN AGAMA REPUBLIK INDONESIA}  \\
-	% & \small{\bo{UNIVERSITAS ISLAM NEGERI}} \\
-	% & \small{\bo{K.H. ABDURRAHMAN WAHID PEKALONGAN}} \\
-	% & \small{\bo{FAKULTAS \Fakultas}} \\
-	% & \footnotesize{Jalan Pahlawan No. 52 Rowolaku Kajen Kab. Pekalongan} \\
-	% & \footnotesize{Website: \websiteFakultas\ Email: \emailFakultas} \\
-	% abc & def
-	% \end{tabular}
-
-	% % gambar garis kop
-	% \hrule width \hsize \kern 0.5mm \hrule width \hsize height 2pt
-	% \end{spacing}
-	% \end{center}
-	% \end{minipage}
- %    \end{figure}
- %    }
-
-    % \fancyhead[RO, LE]{%
-    %     \begin{tabular}[b]{@{}l@{}}
-    %     \arrayrulecolor{blue!75}
-    %     safasf \\
-    %         \\\hline
-    %     \end{tabular}%
-    % }
 
     \fancyhead[L]{}
     \fancyhead[C]{}
@@ -631,9 +583,7 @@
 % \setdefaultlanguage{arabic}
 \setdefaultlanguage[variant=indonesian]{malay}
 \setotherlanguage{malay}
-% \setotherlanguage[variant=indonesian]{malay}
 \setotherlanguage{arabic}
-% \setotherlanguages{english,arabic}
 \setotherlanguage{english}
 \newfontfamily\arabicfont[Path=./assets/fonts/]{SakkalMajallaRegular.ttf}[ % atau Traditional Arabic
   Script=Arabic,
@@ -650,20 +600,11 @@
 %\usepackage[LAE,LFE]{fontenc}
 %\usepackage[OT1]{fontenc}
 % \usepackage[T1]{fontenc}
-%\usepackage{arabtex}
 
 %%
 % Ganti chapter dengan titlesec
 %
 % \usepackage{titlesec} % loaded above
-
-% Customization of chapter headings using titlesec
-% \titleformat{\chapter}[hang]
-%   {\normalfont\Large\bfseries\centering}
-%   {\MakeUppercase{\chaptertitlename}\ \thechapter}
-%   {.5em}
-% %   {\MakeUppercase}
-%   {\vspace{-3cm}}
 
 % \newfontfamily\chapterfont{Times New Roman}
 % Set chapter title format
@@ -688,7 +629,6 @@
 
 \renewcommand\theAsection{\arabic{Asection}\thesection}
 \newcommand{\Asectionautorefname}{New section}
-% \renewcommand*{\cftAsectionindent}{4.5em}
 % Adjust line spacing between sections in the TOC
 % \setlength{\cftbeforesecskip}{0.5em} % Default line spacing between sections
 \newlength{\cftbeforeAsecskip}
@@ -698,19 +638,8 @@
 \makeatletter
   \def\toclevel@Asection{2}
   \def\l@Asection{\@dottedtocline{2}{4.5em}{1.5em}}
-%   \def\l@Asection{\@dotsep{2}}
-%   \renewcommand\cftAsectionafterpnum{\vskip-10pt}
   \renewcommand{\@dotsep}{2}
-%   \renewcommand*{\cftsecindent}{0em}
-%   \newcommand{\Asecpresnum}{\makebox[\cftsecnumwidth][l]} % Custom 'asection' entry format
 
-%   \renewcommand{\Asection}{\addtocontents{equ}{\protect\addvspace{10pt}} \section}
-%   \renewcommand{\cftAsecpresnum}{\let\cftsecindent\cftsecnumwidth} % Align 'asection' entries with number width
-%   \renewcommand{\cftAsecafterpnum}{\cftparfillskip} % Adjust spacing after page number for 'asection' entries
-% \renewcommand{\l@Asection}[2]{%
-%   \vspace{0.5em}% Adjust the value as needed for 'asection' entries
-%   \noindent\hspace{1.5em}\textbf{\thesection\quad#1}\hfill #2\par
-% }
 \renewcommand*{\l@Asection}[2]{%
 \ifnum \c@tocdepth >\z@
 \if@cfthaschapter
@@ -742,28 +671,8 @@
 % \usepackage{bidi} % used also by polyglossia must be defined after titlesec
 \setmainfont{Times New Roman}
 
-% menambah titik di atas huruf
-% \usepackage{stackengine}
-% \newcommand{\textdot[1]}{\stackon[1pt]{\csname text#1\endcsname}{.}}
-\usepackage{amsmath}
-% \usepackage{xparse}
-% \usepackage{newtxtext} %texgyre font
-% \usepackage{newtxmath} %texgyre font
-
+% Menambah titik di atas huruf untuk transliterasi Arab
 \newcommand{\ardot}[1]{\ensuremath{\dot{\text{\normalfont#1}}}}
-% \NewDocumentCommand{\ardot}{m}{$\dot{\vphantom{\mathrm{#1}}}\rlap{\mathrm{#1}}$}
-% \DeclareRobustCommand\ardot[1]{%
-%   \leavevmode
-%   \vbox{
-%     \offinterlineskip
-%     \ialign{%
-%       ##\cr
-%       \hidewidth\.{}\hidewidth\cr
-%       \noalign{\kern-1ex}
-%       #1\cr
-%     }
-%   }%
-% }
 
 \usepackage{hyphenat}
 %\usepackage{showhyphens}
@@ -1045,7 +954,7 @@
 {\singlespacing\par\setlength{\leftskip}{\parindent+1.6cm}\relax\rightskip1cm\relax\noindent}
 {\par\leftskip0cm\relax\rightskip0cm\relax}
 
-\usepackage{enumitem}
+%\usepackage{enumitem}
 % \setlist[itemize]{leftmargin=\leftskip,itemindent=\subsectionindent}
 % \setlist[enumerate]{leftmargin=\leftskip,itemindent=\subsectionindent}
 \setlist[itemize]{leftmargin=\leftskip+\subsectionindent,labelwidth=\itemizelabelwidth,align=left,nosep}
@@ -1058,11 +967,6 @@
 
 % warna kuning
 \definecolor{ChecklistHead}{rgb}{0.87,0.85,0.76}
-
-\usepackage{ltxtable}
-%\usepackage{tabularx}
-\usepackage{booktabs}
-\usepackage{paracol}
 
 \setlist[description]{leftmargin=\parindent,labelindent=\parindent}
 
